@@ -71,7 +71,7 @@ const nextConfig: NextConfig = {
               worker-src 'self' blob: data:;
               manifest-src 'self';
               upgrade-insecure-requests;
-            `.replace(/\s+/g, ' ').trim()
+            `.replace(/\s+/g, ' ').trim() + ` /* v2025-08-06-urgent-fix */`
           },
           {
             key: 'X-DNS-Prefetch-Control',
@@ -120,7 +120,8 @@ const nextConfig: NextConfig = {
   // Environment variables that should be available on the client
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
-    CSP_FIXED_TIMESTAMP: Date.now().toString(),
+    CSP_DEPLOYMENT_VERSION: '2025-08-06-urgent-fix',
+    CSP_CACHE_BUSTER: Date.now().toString(),
   },
 
   // Webpack optimizations
