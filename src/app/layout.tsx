@@ -39,7 +39,6 @@ export const metadata: Metadata = {
   title: "Hong Kong Church - Daily Devotions",
   description: "Daily devotions, prayers, and community connection for Hong Kong Church members",
   manifest: "/manifest.json",
-  themeColor: "#7C3AED",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -59,14 +58,18 @@ export const metadata: Metadata = {
     title: "Hong Kong Church - Daily Devotions",
     description: "Daily devotions, prayers, and community connection for Hong Kong Church members",
   },
-  viewport: {
+};
+
+export function generateViewport() {
+  return {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
     userScalable: false,
     viewportFit: "cover",
-  },
-};
+    themeColor: "#7C3AED",
+  };
+}
 
 export default function RootLayout({
   children,
