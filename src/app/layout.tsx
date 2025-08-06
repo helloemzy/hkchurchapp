@@ -35,6 +35,7 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '500'],
 });
 
+// CACHE BUST v2025.08.06.15:00 - Force new deployment with warm purple design
 export const metadata: Metadata = {
   title: "Hong Kong Church - Daily Devotions",
   description: "Daily devotions, prayers, and community connection for Hong Kong Church members",
