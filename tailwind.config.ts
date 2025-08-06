@@ -6,7 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: ['class', '[data-theme="dark-disabled"]'], // Dark mode disabled for warm church experience
   theme: {
     extend: {
       // Enhanced Hong Kong Church Color Palette
@@ -17,12 +17,12 @@ const config: Config = {
           100: '#e4dcff',
           200: '#d1c4ff',
           300: '#b8a3ff',
-          400: '#9b7ff0',
-          500: '#8366d9', // Softer main brand color
-          600: '#6b51c2',
-          700: '#5640a6',
-          800: '#432f85',
-          900: '#2f1f5c',
+          400: '#A855F7',
+          500: '#7C3AED', // Exact brand purple required
+          600: '#6D28D9',
+          700: '#5B21B6',
+          800: '#4C1D95',
+          900: '#3B1F7A',
           950: '#1a0f35',
         },
         // Enhanced semantic colors
@@ -205,7 +205,7 @@ const config: Config = {
         'gradient-worship': 'linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%)',
         'gradient-prayer': 'linear-gradient(135deg, #fff8e1 0%, #f3efff 100%)',
         'gradient-scripture': 'linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #9b7ff0 0%, #d1c4ff 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
         'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fef7e0 30%, #f0f9ff 70%, #f3efff 100%)',
         'gradient-dark': 'linear-gradient(135deg, #27272a 0%, #2a2a2e 50%, #3f3f46 100%)',
       },

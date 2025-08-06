@@ -106,9 +106,6 @@ export default function Home() {
               >
                 🙏 Prayer
               </Button>
-              <Button variant="ghost" size="sm">
-                🌙
-              </Button>
             </div>
           </nav>
         </div>

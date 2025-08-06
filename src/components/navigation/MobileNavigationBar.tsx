@@ -32,7 +32,7 @@ export function MobileNavigationBar({ items, className }: MobileNavigationBarPro
             onClick={item.onClick}
             disabled={item.disabled}
             className={cn(
-              'flex flex-col items-center justify-center px-3 py-2 rounded-xl text-xs font-medium transition-all duration-200 relative min-w-0 flex-1 group',
+              'flex flex-col items-center justify-center px-3 py-3 rounded-xl text-xs font-medium transition-all duration-200 relative min-w-[44px] min-h-[44px] flex-1 group',
               item.active 
                 ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30' 
                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800/50',
