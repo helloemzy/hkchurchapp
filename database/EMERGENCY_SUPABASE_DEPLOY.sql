@@ -16,6 +16,7 @@ BEGIN
     RAISE NOTICE 'CRITICAL FIXES APPLIED:';
     RAISE NOTICE '✅ Removed CREATE INDEX CONCURRENTLY (Supabase incompatible)';
     RAISE NOTICE '✅ Marked all RLS functions as IMMUTABLE';
+    RAISE NOTICE '✅ Removed PostgreSQL :: casting syntax';
     RAISE NOTICE '✅ Error handling for missing dependencies';
     RAISE NOTICE '✅ Supabase-specific optimizations';
     RAISE NOTICE '========================================';
@@ -211,7 +212,7 @@ CREATE TABLE IF NOT EXISTS prayer_interactions (
   user_id UUID REFERENCES profiles(id) ON DELETE CASCADE NOT NULL,
   action TEXT NOT NULL CHECK (action IN ('prayed', 'shared', 'flagged')),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  UNIQUE(prayer_request_id, user_id, action, created_at::date)
+  UNIQUE(prayer_request_id, user_id, action)
 );
 
 -- Small groups
@@ -699,6 +700,7 @@ BEGIN
     RAISE NOTICE '🔧 CRITICAL FIXES APPLIED:';
     RAISE NOTICE '   ✅ Removed all CONCURRENTLY keywords';
     RAISE NOTICE '   ✅ Marked security functions as IMMUTABLE';
+    RAISE NOTICE '   ✅ Removed PostgreSQL :: casting syntax';
     RAISE NOTICE '   ✅ Added comprehensive error handling';
     RAISE NOTICE '   ✅ Optimized for Supabase deployment';
     RAISE NOTICE '';
