@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
 import withPWA from 'next-pwa';
-import { generateCSPNonce } from './src/lib/security/csp-nonce';
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -15,10 +14,8 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Enhanced Security Headers with CSP
+  // Enhanced Security Headers with CSP optimized for Vercel
   async headers() {
-    const nonce = generateCSPNonce();
-    
     return [
       {
         source: '/(.*)',
@@ -27,37 +24,53 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' 
-                *.vercel.app 
-                *.supabase.co 
+              script-src 'self' 'unsafe-eval' 'unsafe-inline'
+                https://*.vercel.app
+                https://vercel.live
+                https://*.supabase.co 
                 https://www.google-analytics.com 
                 https://www.googletagmanager.com
-                'nonce-${nonce}';
+                https://va.vercel-scripts.com
+                https://vitals.vercel-insights.com
+                https://*.vercel-scripts.com
+                https://*.vercel-insights.com
+                data:;
               style-src 'self' 'unsafe-inline' 
-                https://fonts.googleapis.com;
+                https://fonts.googleapis.com
+                https://*.vercel.app
+                data:;
               img-src 'self' blob: data: 
-                *.supabase.co 
+                https://*.supabase.co 
                 https://www.google-analytics.com
                 https://lh3.googleusercontent.com
-                https://avatars.githubusercontent.com;
+                https://avatars.githubusercontent.com
+                https://*.vercel.app
+                https://*.vercel-insights.com;
               font-src 'self' 
-                https://fonts.gstatic.com;
+                https://fonts.gstatic.com
+                data:;
               connect-src 'self' 
-                *.supabase.co 
+                https://*.supabase.co 
                 wss://*.supabase.co
                 https://www.google-analytics.com
                 https://api.github.com
-                https://accounts.google.com;
-              frame-src 'none';
+                https://accounts.google.com
+                https://va.vercel-scripts.com
+                https://vitals.vercel-insights.com
+                https://*.vercel-scripts.com
+                https://*.vercel-insights.com
+                https://vercel.live
+                wss://ws-us3.pusher.channels.ably.io
+                wss://*.vercel.live;
+              frame-src 'self' https://vercel.live;
               frame-ancestors 'none';
               base-uri 'self';
               form-action 'self';
               object-src 'none';
-              media-src 'self' *.supabase.co;
-              worker-src 'self' blob:;
+              media-src 'self' https://*.supabase.co data:;
+              worker-src 'self' blob: data:;
               manifest-src 'self';
               upgrade-insecure-requests;
-              block-all-mixed-content;
             `.replace(/\s+/g, ' ').trim()
           },
           {
@@ -87,18 +100,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(self), payment=()'
-          },
-          {
-            key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp'
-          },
-          {
-            key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin'
-          },
-          {
-            key: 'Cross-Origin-Resource-Policy',
-            value: 'same-origin'
           }
         ]
       }

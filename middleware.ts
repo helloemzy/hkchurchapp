@@ -178,14 +178,13 @@ async function handleProtectedRoute(
 
 /**
  * Add security headers to response
+ * Note: CSP is handled in next.config.ts to avoid conflicts
  */
 function addSecurityHeaders(response: NextResponse, nonce: string) {
-  // Update CSP header with request-specific nonce
-  response.headers.set('Content-Security-Policy', 
-    `default-src 'self'; script-src 'self' 'nonce-${nonce}' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: *.supabase.co https://lh3.googleusercontent.com https://avatars.githubusercontent.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' *.supabase.co wss://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self';`
-  );
+  // Store nonce in response headers for potential use by components
+  response.headers.set('X-CSP-Nonce', nonce);
 
-  // Add additional security headers
+  // Add additional security headers (non-CSP)
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1136" width="640" height="1136">
+    <rect width="640" height="1136" fill="white"/>
+    <g transform="translate(224, 472)">
+      <!-- Church building -->
+      <rect x="0" y="76.80000000000001" width="192" height="76.80000000000001" fill="#7C3AED"/>
+      <!-- Church roof -->
+      <polygon points="-19.200000000000003,76.80000000000001 96,19.200000000000003 211.20000000000002,76.80000000000001" fill="#7C3AED"/>
+      <!-- Cross on top -->
+      <rect x="86.4" y="0" width="19.200000000000003" height="48" fill="#7C3AED"/>
+      <rect x="67.19999999999999" y="15.36" width="57.599999999999994" height="15.36" fill="#7C3AED"/>
+      <!-- Door -->
+      <rect x="67.19999999999999" y="105.60000000000001" width="57.599999999999994" height="48" fill="white" rx="9.600000000000001"/>
+      <!-- Windows -->
+      <rect x="28.799999999999997" y="96" width="28.799999999999997" height="28.799999999999997" fill="white" rx="3.84"/>
+      <rect x="134.39999999999998" y="96" width="28.799999999999997" height="28.799999999999997" fill="white" rx="3.84"/>
+    </g>
+    <text x="320" y="1036" text-anchor="middle" fill="#7C3AED" font-family="system-ui" font-size="32" font-weight="600">Hong Kong Church</text>
+  </svg>

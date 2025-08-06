@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+    <rect width="192" height="192" fill="white" rx="28.799999999999997"/>
+    <g transform="translate(38.400000000000006, 19.200000000000003)">
+      <!-- Church building -->
+      <rect x="0" y="76.80000000000001" width="115.19999999999999" height="76.80000000000001" fill="#7C3AED"/>
+      <!-- Church roof -->
+      <polygon points="-9.600000000000001,76.80000000000001 57.599999999999994,28.799999999999997 124.80000000000001,76.80000000000001" fill="#7C3AED"/>
+      <!-- Cross on top -->
+      <rect x="52.800000000000004" y="9.600000000000001" width="9.600000000000001" height="38.400000000000006" fill="#7C3AED"/>
+      <rect x="43.2" y="19.200000000000003" width="28.799999999999997" height="9.600000000000001" fill="#7C3AED"/>
+      <!-- Door -->
+      <rect x="43.2" y="115.19999999999999" width="28.799999999999997" height="38.400000000000006" fill="white" rx="3"/>
+      <!-- Windows -->
+      <rect x="19.200000000000003" y="96" width="15.36" height="15.36" fill="white" rx="2"/>
+      <rect x="80.64" y="96" width="15.36" height="15.36" fill="white" rx="2"/>
+    </g>
+  </svg>

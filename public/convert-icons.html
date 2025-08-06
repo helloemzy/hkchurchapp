@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG to PNG Converter</title>
+</head>
+<body>
+    <h2>SVG to PNG Icon Converter</h2>
+    <p>This page will help convert SVG icons to PNG format.</p>
+    
+    <div id="icons-container"></div>
+    
+    <script>
+        const svgFiles = ["apple-splash-1125-2436.svg","apple-splash-1242-2208.svg","apple-splash-1536-2048.svg","apple-splash-1668-2224.svg","apple-splash-2048-2732.svg","apple-splash-640-1136.svg","apple-splash-750-1334.svg","icon-128x128.svg","icon-144x144.svg","icon-152x152.svg","icon-16x16.svg","icon-192x192.svg","icon-32x32.svg","icon-384x384.svg","icon-512x512.svg","icon-72x72.svg","icon-96x96.svg","shortcut-devotion.svg","shortcut-events.svg","shortcut-prayer.svg"];
+        
+        svgFiles.forEach(async (svgFile) => {
+            try {
+                const response = await fetch('./icons/' + svgFile);
+                const svgText = await response.text();
+                
+                // Create container
+                const container = document.createElement('div');
+                container.innerHTML = '<h3>' + svgFile + '</h3>';
+                
+                // Create SVG element
+                const svgDiv = document.createElement('div');
+                svgDiv.innerHTML = svgText;
+                const svgElement = svgDiv.querySelector('svg');
+                
+                if (svgElement) {
+                    // Create canvas
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Get SVG dimensions
+                    const svgWidth = parseInt(svgElement.getAttribute('width')) || 512;
+                    const svgHeight = parseInt(svgElement.getAttribute('height')) || 512;
+                    
+                    canvas.width = svgWidth;
+                    canvas.height = svgHeight;
+                    
+                    // Create image from SVG
+                    const img = new Image();
+                    const svgBlob = new Blob([svgText], {type: 'image/svg+xml;charset=utf-8'});
+                    const url = URL.createObjectURL(svgBlob);
+                    
+                    img.onload = function() {
+                        ctx.drawImage(img, 0, 0);
+                        
+                        // Convert to PNG
+                        canvas.toBlob(function(blob) {
+                            const link = document.createElement('a');
+                            link.download = svgFile.replace('.svg', '.png');
+                            link.href = URL.createObjectURL(blob);
+                            link.textContent = 'Download ' + link.download;
+                            container.appendChild(link);
+                            container.appendChild(document.createElement('br'));
+                            
+                            URL.revokeObjectURL(url);
+                        }, 'image/png');
+                    };
+                    
+                    img.src = url;
+                    container.appendChild(svgElement);
+                }
+                
+                document.getElementById('icons-container').appendChild(container);
+                
+            } catch (error) {
+                console.error('Error processing ' + svgFile + ':', error);
+            }
+        });
+    </script>
+</body>
+</html>

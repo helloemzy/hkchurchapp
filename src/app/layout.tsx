@@ -112,7 +112,7 @@ export default function RootLayout({
             <PerformanceMonitor />
           </AuthProvider>
         </ErrorBoundary>
-        <Analytics />
+        <Analytics mode="production" />
         <SpeedInsights />
       </body>
     </html>
