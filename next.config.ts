@@ -120,6 +120,7 @@ const nextConfig: NextConfig = {
   // Environment variables that should be available on the client
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
+    CSP_FIXED_TIMESTAMP: Date.now().toString(),
   },
 
   // Webpack optimizations
