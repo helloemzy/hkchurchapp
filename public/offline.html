@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>You're Offline - Hong Kong Church</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #eff6ff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--gray-50) 100%);
+            color: var(--gray-800);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .offline-container {
+            background: white;
+            border-radius: 16px;
+            padding: 48px 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .offline-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .offline-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 12px;
+        }
+
+        .offline-message {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .offline-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-blue);
+        }
+
+        .offline-features {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .offline-features h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--gray-600);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .connection-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: #dc2626;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .connection-status.online {
+            background: #16a34a;
+        }
+
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 32px 24px;
+            }
+            
+            .offline-title {
+                font-size: 20px;
+            }
+            
+            .offline-message {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM13 17h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+        </div>
+        
+        <h1 class="offline-title">You're Currently Offline</h1>
+        
+        <p class="offline-message">
+            Don't worry! You can still access your saved devotions, prayers, and other content 
+            while offline. We'll sync everything once you're back online.
+        </p>
+        
+        <div class="offline-actions">
+            <button class="btn btn-primary" onclick="checkConnection()">
+                Try Again
+            </button>
+            <a href="/" class="btn btn-secondary">
+                Continue Offline
+            </a>
+        </div>
+        
+        <div class="offline-features">
+            <h3>Available Offline:</h3>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    Previously viewed devotions and prayers
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                        </svg>
+                    </div>
+                    Saved Bible verses and spiritual content
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    Personal notes and prayer journal
+                </li>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zM4 19V7h16v12H4z"/>
+                        </svg>
+                    </div>
+                    Church event details (cached)
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="connection-status" id="connectionStatus">
+        Offline
+    </div>
+
+    <script>
+        // Check connection status
+        function updateConnectionStatus() {
+            const status = document.getElementById('connectionStatus');
+            if (navigator.onLine) {
+                status.textContent = 'Online';
+                status.classList.add('online');
+                // Auto-redirect when back online after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            } else {
+                status.textContent = 'Offline';
+                status.classList.remove('online');
+            }
+        }
+
+        function checkConnection() {
+            if (navigator.onLine) {
+                window.location.href = '/';
+            } else {
+                // Provide feedback
+                const btn = document.querySelector('.btn-primary');
+                const originalText = btn.textContent;
+                btn.textContent = 'Still Offline...';
+                btn.style.background = '#dc2626';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            }
+        }
+
+        // Listen for connection changes
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Initial check
+        updateConnectionStatus();
+
+        // Retry connection every 30 seconds
+        setInterval(() => {
+            if (navigator.onLine) {
+                updateConnectionStatus();
+            }
+        }, 30000);
+
+        // Try to load critical resources from cache
+        if ('caches' in window) {
+            caches.match('/')
+                .then(response => {
+                    if (response) {
+                        console.log('App shell available in cache');
+                    }
+                });
+        }
+    </script>
+</body>
+</html>

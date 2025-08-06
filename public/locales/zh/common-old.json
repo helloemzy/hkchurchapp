@@ -1,0 +1,241 @@
+{
+  "appName": "香港教會",
+  "appTagline": "每日靈修、禱告與團契連結",
+  
+  "navigation": {
+    "home": "主頁",
+    "devotions": "靈修", 
+    "events": "活動",
+    "groups": "小組",
+    "prayer": "禱告",
+    "profile": "個人檔案",
+    "bible": "聖經",
+    "settings": "設定"
+  },
+  
+  "actions": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "retry": "重試",
+    "ok": "確定",
+    "cancel": "取消",
+    "save": "儲存",
+    "delete": "刪除",
+    "edit": "編輯",
+    "close": "關閉",
+    "next": "下一個",
+    "previous": "上一個",
+    "back": "返回",
+    "share": "分享",
+    "bookmark": "收藏",
+    "read": "閱讀",
+    "readMore": "閱讀更多",
+    "showLess": "收起",
+    "viewAll": "查看全部",
+    "refresh": "重新整理",
+    "search": "搜尋",
+    "filter": "篩選",
+    "sort": "排序",
+    "join": "加入",
+    "leave": "離開",
+    "submit": "提交",
+    "send": "發送",
+    "update": "更新",
+    "create": "建立",
+    "add": "新增",
+    "remove": "移除"
+  },
+  
+  "status": {
+    "online": "已連線",
+    "offline": "離線",
+    "syncing": "同步中...",
+    "synced": "已同步",
+    "draft": "草稿",
+    "published": "已發布",
+    "archived": "已封存",
+    "active": "活躍",
+    "inactive": "非活躍",
+    "pending": "待審核",
+    "approved": "已批准",
+    "rejected": "已拒絕"
+  },
+  
+  "time": {
+    "now": "現在",
+    "today": "今天",
+    "yesterday": "昨天",
+    "tomorrow": "明天",
+    "thisWeek": "本週",
+    "nextWeek": "下週",
+    "thisMonth": "本月",
+    "nextMonth": "下月",
+    "morning": "上午",
+    "afternoon": "下午",
+    "evening": "晚上",
+    "night": "深夜",
+    "minutes": "{{count}} 分鐘",
+    "minutes_plural": "{{count}} 分鐘",
+    "hours": "{{count}} 小時",
+    "hours_plural": "{{count}} 小時",
+    "days": "{{count}} 天",
+    "days_plural": "{{count}} 天",
+    "weeks": "{{count}} 週",
+    "weeks_plural": "{{count}} 週",
+    "months": "{{count}} 個月",
+    "months_plural": "{{count}} 個月",
+    "years": "{{count}} 年",
+    "years_plural": "{{count}} 年",
+    "ago": "{{time}}前",
+    "inTime": "{{time}}後"
+  },
+  
+  "notifications": {
+    "title": "通知",
+    "empty": "沒有新通知",
+    "markAllRead": "全部標示為已讀",
+    "settings": "通知設定",
+    "enable": "啟用通知",
+    "disable": "停用通知",
+    "permission": "允許通知以獲得禱告、活動和靈修的最新資訊。",
+    "devotion": {
+      "title": "📖 今日靈修",
+      "read": "立即閱讀",
+      "save": "稍後閱讀",
+      "reminder": "📖 每日靈修時間"
+    },
+    "prayer": {
+      "new": "🙏 新的代禱請求",
+      "answered": "✨ 禱告得應允！",
+      "urgent": "🚨 緊急代禱需要",
+      "pray": "立即禱告",
+      "support": "發送支持",
+      "reminder": "🙏 禱告時間提醒"
+    },
+    "event": {
+      "reminder": "⛪ 教會活動提醒",
+      "view": "查看詳情",
+      "directions": "獲取路線"
+    },
+    "community": {
+      "groupMessage": "💬 新的小組消息",
+      "groupMilestone": "🎉 小組里程碑！",
+      "achievement": "🌟 社群成就",
+      "encouragement": "💝 屬靈鼓勵",
+      "view": "查看",
+      "join": "加入討論",
+      "weeklyCheckin": "🤗 每週屬靈檢視"
+    },
+    "preferences": {
+      "devotions": "每日靈修",
+      "events": "教會活動",
+      "prayers": "代禱請求",
+      "community": "社群更新",
+      "quietHours": "勿擾時段",
+      "advanced": "進階設定",
+      "time": "時間",
+      "language": "語言",
+      "reminders": "提醒時間",
+      "urgentOnly": "僅緊急請求",
+      "groupMessages": "小組消息",
+      "achievements": "成就與里程碑",
+      "weeklyCheckins": "每週屬靈檢視",
+      "batchNotifications": "批次通知以減少干擾",
+      "maxPerDay": "每日最多通知數",
+      "from": "從",
+      "to": "到"
+    }
+  },
+  
+  "errors": {
+    "generic": "發生錯誤，請重試。",
+    "network": "請檢查您的網絡連線。",
+    "notFound": "找不到所請求的內容。",
+    "unauthorized": "您需要登入才能訪問此內容。",
+    "forbidden": "您沒有訪問此內容的權限。",
+    "validation": "請檢查您的輸入並重試。",
+    "offline": "您目前處於離線狀態，某些功能可能不可用。"
+  },
+  
+  "success": {
+    "saved": "成功儲存！",
+    "updated": "成功更新！",
+    "deleted": "成功刪除！",
+    "shared": "成功分享！",
+    "copied": "已複製到剪貼簿！",
+    "bookmarked": "已加入收藏！",
+    "unbookmarked": "已從收藏中移除！",
+    "joined": "成功加入！",
+    "left": "成功離開！",
+    "submitted": "成功提交！",
+    "sent": "成功發送！"
+  },
+  
+  "placeholders": {
+    "search": "搜尋...",
+    "searchDevotions": "搜尋靈修...",
+    "searchEvents": "搜尋活動...",
+    "searchGroups": "搜尋小組...",
+    "name": "請輸入您的姓名",
+    "email": "請輸入您的電郵",
+    "phone": "請輸入您的電話號碼",
+    "message": "請輸入您的訊息",
+    "comment": "新增評論...",
+    "title": "請輸入標題",
+    "description": "請輸入描述"
+  },
+  
+  "confirmation": {
+    "delete": "您確定要刪除此項目嗎？",
+    "deleteTitle": "刪除{{item}}",
+    "deleteMessage": "此動作無法撤銷。您確定要刪除{{item}}嗎？",
+    "leave": "您確定要離開嗎？",
+    "leaveTitle": "離開{{item}}",
+    "leaveMessage": "您將不再收到{{item}}的更新。您可以隨時重新加入。",
+    "unsavedChanges": "您有未儲存的更改",
+    "unsavedChangesMessage": "如果您現在離開，您的更改將會丟失。您想要繼續嗎？"
+  },
+  
+  "accessibility": {
+    "openMenu": "開啟選單",
+    "closeMenu": "關閉選單",
+    "toggleTheme": "切換深色模式",
+    "toggleLanguage": "更改語言",
+    "goBack": "返回",
+    "skipToContent": "跳到主要內容",
+    "loading": "正在載入內容",
+    "expandContent": "展開內容",
+    "collapseContent": "收起內容"
+  },
+  
+  "language": {
+    "switchTo": "切換到{{language}}",
+    "current": "目前語言：{{language}}",
+    "english": "English",
+    "chinese": "繁體中文"
+  },
+  
+  "theme": {
+    "light": "淺色",
+    "dark": "深色",
+    "system": "跟隨系統",
+    "switchTo": "切換到{{theme}}模式"
+  },
+  
+  "units": {
+    "people": "{{count}} 人",
+    "people_plural": "{{count}} 人",
+    "members": "{{count}} 位成員",
+    "members_plural": "{{count}} 位成員",
+    "attendees": "{{count}} 位參加者",
+    "attendees_plural": "{{count}} 位參加者",
+    "views": "{{count}} 次觀看",
+    "views_plural": "{{count}} 次觀看",
+    "likes": "{{count}} 個讚",
+    "likes_plural": "{{count}} 個讚",
+    "comments": "{{count}} 則留言",
+    "comments_plural": "{{count}} 則留言",
+    "shares": "{{count}} 次分享",
+    "shares_plural": "{{count}} 次分享"
+  }
+}

@@ -1,0 +1,218 @@
+name: Lighthouse CI Performance Monitoring
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    # Run daily at 6 AM UTC (2 PM Hong Kong time)
+    - cron: '0 6 * * *'
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.12.0
+
+      - name: Run Lighthouse CI
+        run: |
+          # Start the application in background
+          npm start &
+          
+          # Wait for server to be ready
+          npx wait-on http://localhost:3000 --timeout 60000
+          
+          # Run Lighthouse CI
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Upload Lighthouse results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-results
+          path: .lighthouseci/
+          retention-days: 30
+
+  performance-budget:
+    runs-on: ubuntu-latest
+    needs: lighthouse
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check bundle size
+        run: |
+          npm run build
+          
+          # Check JavaScript bundle size (should be < 250KB)
+          JS_SIZE=$(find .next/static/chunks -name "*.js" -exec wc -c {} + | tail -n 1 | awk '{print $1}')
+          echo "JavaScript bundle size: $JS_SIZE bytes"
+          
+          if [ $JS_SIZE -gt 250000 ]; then
+            echo "❌ JavaScript bundle size exceeds 250KB limit"
+            exit 1
+          else
+            echo "✅ JavaScript bundle size is within limits"
+          fi
+          
+          # Check CSS bundle size (should be < 50KB)
+          CSS_SIZE=$(find .next/static/css -name "*.css" -exec wc -c {} + 2>/dev/null | tail -n 1 | awk '{print $1}' || echo 0)
+          echo "CSS bundle size: $CSS_SIZE bytes"
+          
+          if [ $CSS_SIZE -gt 50000 ]; then
+            echo "❌ CSS bundle size exceeds 50KB limit"
+            exit 1
+          else
+            echo "✅ CSS bundle size is within limits"
+          fi
+
+      - name: Analyze bundle
+        run: |
+          # Install bundle analyzer
+          npm install --no-save @next/bundle-analyzer
+          
+          # Create bundle analysis
+          ANALYZE=true npm run build
+        
+      - name: Comment PR with performance results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            let comment = '## 🚀 Performance Analysis\n\n';
+            
+            try {
+              // Read Lighthouse results if available
+              const lhciDir = '.lighthouseci';
+              if (fs.existsSync(lhciDir)) {
+                comment += '### Lighthouse Scores\n';
+                comment += '- Performance: Check the detailed report in the artifacts\n';
+                comment += '- Accessibility: Monitored for 95%+ score\n';
+                comment += '- SEO: Monitored for 90%+ score\n';
+                comment += '- PWA: Monitored for 90%+ score\n\n';
+              }
+              
+              comment += '### Bundle Size Analysis\n';
+              comment += '- JavaScript: Target < 250KB\n';
+              comment += '- CSS: Target < 50KB\n';
+              comment += '- Images: Optimized with Next.js Image\n\n';
+              
+              comment += '### Core Web Vitals Targets\n';
+              comment += '- LCP (Largest Contentful Paint): < 2.5s\n';
+              comment += '- FID (First Input Delay): < 100ms\n';
+              comment += '- CLS (Cumulative Layout Shift): < 0.1\n\n';
+              
+              comment += '📊 Detailed performance reports are available in the Actions artifacts.';
+              
+            } catch (error) {
+              comment += 'Performance analysis completed. Check the Actions logs for detailed results.';
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  mobile-performance:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Test mobile performance
+        run: |
+          # Start the application
+          npm start &
+          npx wait-on http://localhost:3000 --timeout 60000
+          
+          # Run mobile-specific Lighthouse tests
+          npx lighthouse http://localhost:3000 \
+            --preset=mobile \
+            --throttling-method=simulate \
+            --throttling.cpuSlowdownMultiplier=4 \
+            --throttling.requestLatencyMs=562.5 \
+            --throttling.downloadThroughputKbps=1474.56 \
+            --throttling.uploadThroughputKbps=675 \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --screenEmulation.width=375 \
+            --screenEmulation.height=667 \
+            --output=json \
+            --output-path=./mobile-lighthouse.json
+          
+          # Check Core Web Vitals for mobile
+          node -e "
+            const report = require('./mobile-lighthouse.json');
+            const lcp = report.audits['largest-contentful-paint'].numericValue;
+            const fid = report.audits['max-potential-fid'].numericValue;
+            const cls = report.audits['cumulative-layout-shift'].numericValue;
+            
+            console.log('Mobile Core Web Vitals:');
+            console.log('LCP:', lcp + 'ms', lcp < 2500 ? '✅' : '❌');
+            console.log('FID:', fid + 'ms', fid < 100 ? '✅' : '❌');
+            console.log('CLS:', cls, cls < 0.1 ? '✅' : '❌');
+            
+            if (lcp >= 2500 || fid >= 100 || cls >= 0.1) {
+              console.error('Mobile performance does not meet Core Web Vitals standards');
+              process.exit(1);
+            }
+          "
+
+      - name: Upload mobile performance results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-performance-results
+          path: mobile-lighthouse.json
+          retention-days: 30

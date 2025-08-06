@@ -1,0 +1,477 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { DevotionReader } from '../components/devotions/DevotionReader';
+import { BibleReader } from '../components/bible/BibleReader';
+import { PrayerRequests } from '../components/prayer/PrayerRequests';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+import { useAuthContext } from '../lib/auth/auth-context';
+
+type ActiveView = 'devotion' | 'bible' | 'prayer' | 'home';
+
+export default function Home() {
+  const [activeView, setActiveView] = useState<ActiveView>('home');
+  const { user } = useAuthContext();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100">
+      {/* Navigation Header */}
+      <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-primary-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⛪</span>
+              <h1 className="text-xl font-display font-bold text-primary-900">
+                Hong Kong Church
+              </h1>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-2">
+              <Button
+                variant={activeView === 'home' ? 'primary' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveView('home')}
+              >
+                Home
+              </Button>
+              <Button
+                variant={activeView === 'devotion' ? 'primary' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveView('devotion')}
+              >
+                📖 Devotions
+              </Button>
+              <Button
+                variant={activeView === 'bible' ? 'primary' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveView('bible')}
+              >
+                📜 Bible
+              </Button>
+              <Button
+                variant={activeView === 'prayer' ? 'primary' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveView('prayer')}
+              >
+                🙏 Prayers
+              </Button>
+            </div>
+
+            {!user && (
+              <Button size="sm">
+                Sign In
+              </Button>
+            )}
+          </nav>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-primary-200 z-50">
+        <div className="flex items-center justify-around py-2">
+          {[
+            { key: 'home', label: 'Home', icon: '🏠' },
+            { key: 'devotion' as ActiveView, label: 'Devotions', icon: '📖' },
+            { key: 'bible' as ActiveView, label: 'Bible', icon: '📜' },
+            { key: 'prayer' as ActiveView, label: 'Prayers', icon: '🙏' },
+          ].map((item) => (
+            <button
+              key={item.key}
+              onClick={() => setActiveView(item.key)}
+              className={`flex flex-col items-center py-1 px-3 rounded-lg transition-colors ${
+                activeView === item.key
+                  ? 'bg-primary-100 text-primary-700'
+                  : 'text-gray-600'
+              }`}
+            >
+              <span className="text-lg mb-1">{item.icon}</span>
+              <span className="text-xs font-medium">{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <main className="pb-20 sm:pb-8">
+        {activeView === 'home' && (
+          <div className="p-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h1 className="text-4xl font-display font-bold text-primary-900 mb-4">
+                  Welcome to Hong Kong Church
+                </h1>
+                <p className="text-xl text-primary-700 mb-8">
+                  Daily devotions, Bible reading, and prayer community
+                </p>
+              </div>
+              
+              {/* Quick Actions */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setActiveView('devotion')}>
+                  <div className="text-center">
+                    <div className="text-4xl mb-4">📖</div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Today's Devotion</h3>
+                    <p className="text-gray-600">Start your day with God's word and reflection</p>
+                  </div>
+                </Card>
+
+                <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setActiveView('bible')}>
+                  <div className="text-center">
+                    <div className="text-4xl mb-4">📜</div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Bible Reading</h3>
+                    <p className="text-gray-600">Read, bookmark, and take notes on scripture</p>
+                  </div>
+                </Card>
+
+                <Card className="p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setActiveView('prayer')}>
+                  <div className="text-center">
+                    <div className="text-4xl mb-4">🙏</div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Prayer Requests</h3>
+                    <p className="text-gray-600">Share and pray for one another</p>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Features Overview */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Bible Features */}
+                <div className="bg-white rounded-2xl p-6 shadow-card">
+                  <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+                    📖 Bible Features
+                  </h2>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Daily devotions with reflection questions
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Interactive Bible reader with bookmarking
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Personal notes and verse highlighting
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Reading progress and streak tracking
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Traditional Chinese and English support
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Community Features */}
+                <div className="bg-white rounded-2xl p-6 shadow-card">
+                  <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+                    🤝 Community Features
+                  </h2>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Prayer request sharing and responses
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Community prayer tracking
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Devotion sharing and reflections
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Achievement and progress celebration
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Secure authentication and privacy
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* PWA Features */}
+                <div className="bg-white rounded-2xl p-6 shadow-card">
+                  <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+                    📱 PWA Features
+                  </h2>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Offline Bible reading and devotions
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Install as mobile app (iOS/Android)
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Push notifications for daily devotions
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Background sync for prayer updates
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Mobile-first responsive design
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Technical Excellence */}
+                <div className="bg-white rounded-2xl p-6 shadow-card">
+                  <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+                    🛡️ Technical Excellence
+                  </h2>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Enterprise-grade security (CSP, rate limiting)
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Real-time data sync with Supabase
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      TypeScript for type safety
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Comprehensive testing and validation
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-green-500 mr-3">✅</span>
+                      Accessibility and performance optimized
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              {/* Next Steps */}
+              <div className="mt-12 bg-primary-50 rounded-2xl p-6 border border-primary-200">
+                <h2 className="text-2xl font-display font-semibold mb-4 text-primary-800">
+                  🎉 Bible Features Implementation Complete
+                </h2>
+                <p className="text-primary-700 mb-4">
+                  The core Bible reading and devotion system is now fully implemented with:
+                </p>
+                <ul className="text-sm text-primary-600 space-y-2 mb-6">
+                  <li>• Complete daily devotion system with progress tracking</li>
+                  <li>• Interactive Bible reader with bookmarking and notes</li>
+                  <li>• Community prayer request system</li>
+                  <li>• Multilingual support (English/Traditional Chinese)</li>
+                  <li>• Reading streaks and achievement system</li>
+                  <li>• Secure API endpoints with proper validation</li>
+                </ul>
+                <div className="flex flex-wrap gap-3">
+                  <Button onClick={() => setActiveView('devotion')}>
+                    📖 Try Daily Devotions
+                  </Button>
+                  <Button variant="secondary" onClick={() => setActiveView('bible')}>
+                    📜 Open Bible Reader
+                  </Button>
+                  <Button variant="secondary" onClick={() => setActiveView('prayer')}>
+                    🙏 View Prayer Requests
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeView === 'devotion' && (
+          <div className="p-4 sm:p-8">
+            <DevotionReader />
+          </div>
+        )}
+
+        {activeView === 'bible' && (
+          <div className="p-4 sm:p-8">
+            <BibleReader />
+          </div>
+        )}
+
+        {activeView === 'prayer' && (
+          <div className="p-4 sm:p-8">
+            <PrayerRequests />
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Design System Features */}
+          <div className="bg-white rounded-2xl p-6 shadow-card">
+            <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+              Design System Features
+            </h2>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                CSS Custom Properties with Hong Kong Church colors
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Tailwind CSS configuration with design tokens
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Typography system (Inter, Plus Jakarta Sans, Chinese fonts)
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Responsive breakpoint system & dark mode
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Purple primary color (#7C3AED) brand system
+              </li>
+            </ul>
+          </div>
+          
+          {/* Component Library */}
+          <div className="bg-white rounded-2xl p-6 shadow-card">
+            <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+              Component Library
+            </h2>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Button components (Primary, Secondary, Ghost, Destructive)
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Card components (DevotionCard, EventCard, GroupCard)
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Layout components (Container, Header, MobileLayout)
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Navigation (BottomNavigation, BackButton)
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                TypeScript support with proper type definitions
+              </li>
+            </ul>
+          </div>
+          
+          {/* PWA Features */}
+          <div className="bg-white rounded-2xl p-6 shadow-card">
+            <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+              PWA Features
+            </h2>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Service Worker with Workbox caching strategies
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                App manifest with Hong Kong Church branding
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Installation prompts and offline support
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Background sync and push notifications
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Mobile-first responsive design
+              </li>
+            </ul>
+          </div>
+          
+          {/* Internationalization */}
+          <div className="bg-white rounded-2xl p-6 shadow-card">
+            <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+              Internationalization
+            </h2>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                English and Traditional Chinese support
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Hong Kong-specific language detection
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Language switching component
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Localized date, time, and number formatting
+              </li>
+              <li className="flex items-center">
+                <span className="text-green-500 mr-3">✅</span>
+                Translation key structure setup
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        {/* Color Palette Demo */}
+        <div className="mt-12 bg-white rounded-2xl p-6 shadow-card">
+          <h2 className="text-2xl font-display font-semibold mb-6 text-primary-800">
+            Hong Kong Church Color Palette
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[
+              { name: 'Primary', class: 'bg-primary-500', value: '#7C3AED' },
+              { name: 'Success', class: 'bg-green-500', value: '#10B981' },
+              { name: 'Warning', class: 'bg-yellow-500', value: '#F59E0B' },
+              { name: 'Error', class: 'bg-red-500', value: '#EF4444' },
+              { name: 'Info', class: 'bg-blue-500', value: '#3B82F6' },
+              { name: 'Gray', class: 'bg-gray-500', value: '#6B7280' },
+            ].map((color) => (
+              <div key={color.name} className="text-center">
+                <div className={`w-full h-16 rounded-lg ${color.class} mb-2`} />
+                <p className="text-sm font-medium">{color.name}</p>
+                <p className="text-xs text-gray-500">{color.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Next Steps */}
+        <div className="mt-12 bg-primary-50 rounded-2xl p-6 border border-primary-200">
+          <h2 className="text-2xl font-display font-semibold mb-4 text-primary-800">
+            ✨ Implementation Complete - Next Steps
+          </h2>
+          <p className="text-primary-700 mb-4">
+            The design system and core components are now ready for development. The foundation includes:
+          </p>
+          <ul className="text-sm text-primary-600 space-y-2">
+            <li>• Complete design system with Hong Kong Church branding</li>
+            <li>• Production-ready React components with TypeScript</li>
+            <li>• PWA functionality with offline support</li>
+            <li>• Internationalization for English and Traditional Chinese</li>
+            <li>• Mobile-first responsive design with accessibility compliance</li>
+          </ul>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <button className="bg-primary-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-600 transition-colors">
+              Start Building Features
+            </button>
+            <button className="border border-primary-300 text-primary-700 px-6 py-2 rounded-lg font-medium hover:bg-primary-50 transition-colors">
+              View Components
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

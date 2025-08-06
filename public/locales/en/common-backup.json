@@ -1,0 +1,315 @@
+{
+  "appName": "Hong Kong Church",
+  "appTagline": "Daily devotions, prayers, and community connection",
+  
+  "navigation": {
+    "home": "Home",
+    "devotions": "Devotions", 
+    "events": "Events",
+    "groups": "Groups",
+    "prayer": "Prayer",
+    "profile": "Profile",
+    "bible": "Bible",
+    "settings": "Settings"
+  },
+  
+  "actions": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back",
+    "share": "Share",
+    "bookmark": "Bookmark",
+    "read": "Read",
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "viewAll": "View all",
+    "refresh": "Refresh",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "join": "Join",
+    "leave": "Leave",
+    "submit": "Submit",
+    "send": "Send",
+    "update": "Update",
+    "create": "Create",
+    "add": "Add",
+    "remove": "Remove"
+  },
+  
+  "status": {
+    "online": "Online",
+    "offline": "Offline",
+    "syncing": "Syncing...",
+    "synced": "Synced",
+    "draft": "Draft",
+    "published": "Published",
+    "archived": "Archived",
+    "active": "Active",
+    "inactive": "Inactive",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected"
+  },
+  
+  "time": {
+    "now": "Now",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "thisWeek": "This week",
+    "nextWeek": "Next week",
+    "thisMonth": "This month",
+    "nextMonth": "Next month",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "night": "Night",
+    "minutes": "{{count}} minute",
+    "minutes_plural": "{{count}} minutes",
+    "hours": "{{count}} hour",
+    "hours_plural": "{{count}} hours",
+    "days": "{{count}} day",
+    "days_plural": "{{count}} days",
+    "weeks": "{{count}} week", 
+    "weeks_plural": "{{count}} weeks",
+    "months": "{{count}} month",
+    "months_plural": "{{count}} months",
+    "years": "{{count}} year",
+    "years_plural": "{{count}} years",
+    "ago": "{{time}} ago",
+    "inTime": "in {{time}}"
+  },
+  
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No new notifications",
+    "markAllRead": "Mark all as read",
+    "settings": "Notification Settings",
+    "enable": "Enable notifications",
+    "disable": "Disable notifications",
+    "permission": "Allow notifications to stay updated with prayers, events, and devotions.",
+    "devotion": {
+      "title": "📖 Today's Devotion",
+      "read": "Read Now",
+      "save": "Save for Later",
+      "reminder": "📖 Time for Daily Devotion"
+    },
+    "prayer": {
+      "new": "🙏 New Prayer Request",
+      "answered": "✨ Prayer Answered!",
+      "urgent": "🚨 Urgent Prayer Needed",
+      "pray": "Pray Now",
+      "support": "Send Support",
+      "reminder": "🙏 Prayer Time Reminder"
+    },
+    "event": {
+      "reminder": "⛪ Church Event Reminder",
+      "view": "View Details",
+      "directions": "Get Directions"
+    },
+    "community": {
+      "groupMessage": "💬 New Group Message",
+      "groupMilestone": "🎉 Group Milestone!",
+      "achievement": "🌟 Community Achievement",
+      "encouragement": "💝 Spiritual Encouragement",
+      "view": "View",
+      "join": "Join Discussion",
+      "weeklyCheckin": "🤗 Weekly Spiritual Check-in"
+    },
+    "preferences": {
+      "devotions": "Daily Devotions",
+      "events": "Church Events",
+      "prayers": "Prayer Requests",
+      "community": "Community Updates",
+      "quietHours": "Quiet Hours",
+      "advanced": "Advanced Settings",
+      "time": "Time",
+      "language": "Language",
+      "reminders": "Reminder Times",
+      "urgentOnly": "Only urgent requests",
+      "groupMessages": "Group messages",
+      "achievements": "Achievements & milestones",
+      "weeklyCheckins": "Weekly spiritual check-ins",
+      "batchNotifications": "Batch notifications to reduce interruptions",
+      "maxPerDay": "Maximum notifications per day",
+      "from": "From",
+      "to": "To"
+    }
+  },
+  
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Please check your internet connection.",
+    "notFound": "The requested content was not found.",
+    "unauthorized": "You need to be signed in to access this.",
+    "forbidden": "You don't have permission to access this.",
+    "validation": "Please check your input and try again.",
+    "offline": "You're currently offline. Some features may not be available."
+  },
+  
+  "success": {
+    "saved": "Successfully saved!",
+    "updated": "Successfully updated!",
+    "deleted": "Successfully deleted!",
+    "shared": "Successfully shared!",
+    "copied": "Copied to clipboard!",
+    "bookmarked": "Added to bookmarks!",
+    "unbookmarked": "Removed from bookmarks!",
+    "joined": "Successfully joined!",
+    "left": "Successfully left!",
+    "submitted": "Successfully submitted!",
+    "sent": "Successfully sent!"
+  },
+  
+  "placeholders": {
+    "search": "Search...",
+    "searchDevotions": "Search devotions...",
+    "searchEvents": "Search events...",
+    "searchGroups": "Search groups...",
+    "name": "Enter your name",
+    "email": "Enter your email",
+    "phone": "Enter your phone number",
+    "message": "Enter your message",
+    "comment": "Add a comment...",
+    "title": "Enter a title",
+    "description": "Enter a description"
+  },
+  
+  "confirmation": {
+    "delete": "Are you sure you want to delete this?",
+    "deleteTitle": "Delete {{item}}",
+    "deleteMessage": "This action cannot be undone. Are you sure you want to delete {{item}}?",
+    "leave": "Are you sure you want to leave?",
+    "leaveTitle": "Leave {{item}}",
+    "leaveMessage": "You will no longer receive updates from {{item}}. You can rejoin anytime.",
+    "unsavedChanges": "You have unsaved changes",
+    "unsavedChangesMessage": "If you leave now, your changes will be lost. Do you want to continue?"
+  },
+  
+  "accessibility": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu", 
+    "toggleTheme": "Toggle dark mode",
+    "toggleLanguage": "Change language",
+    "goBack": "Go back",
+    "skipToContent": "Skip to main content",
+    "loading": "Loading content",
+    "expandContent": "Expand content",
+    "collapseContent": "Collapse content"
+  },
+  
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "current": "Current language: {{language}}",
+    "english": "English", 
+    "chinese": "繁體中文"
+  },
+  
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "switchTo": "Switch to {{theme}} mode"
+  },
+  
+  "units": {
+    "people": "{{count}} person",
+    "people_plural": "{{count}} people",
+    "members": "{{count}} member",
+    "members_plural": "{{count}} members",
+    "attendees": "{{count}} attendee", 
+    "attendees_plural": "{{count}} attendees",
+    "views": "{{count}} view",
+    "views_plural": "{{count}} views",
+    "likes": "{{count}} like",
+    "likes_plural": "{{count}} likes",
+    "comments": "{{count}} comment",
+    "comments_plural": "{{count}} comments",
+    "shares": "{{count}} share",
+    "shares_plural": "{{count}} shares"
+  },
+
+  "events": {
+    "title": "Events",
+    "featured": "Featured", 
+    "cancelled": "Cancelled",
+    "past": "Past Event",
+    "upcoming": "Upcoming",
+    "register": "Register",
+    "registered": "registered",
+    "full": "Full",
+    "registration_closed": "Registration Closed",
+    "organized_by": "Organized by",
+    "no_events": "No Events Found",
+    "no_events_filtered": "No events match your current filters.",
+    "no_events_available": "No events are currently available.",
+    "search_placeholder": "Search events...",
+    "categories": {
+      "all": "All Categories",
+      "worship": "Worship",
+      "fellowship": "Fellowship", 
+      "study": "Bible Study",
+      "service": "Service",
+      "community": "Community",
+      "outreach": "Outreach"
+    }
+  },
+
+  "groups": {
+    "title": "Small Groups",
+    "members": "members",
+    "spots_remaining": "spots remaining",
+    "full": "Full",
+    "join": "Join Group",
+    "request_to_join": "Request to Join",
+    "led_by": "Led by",
+    "approval_required": "Approval Required",
+    "closed": "Closed to New Members",
+    "open_to_join": "Open to Join",
+    "no_groups": "No Groups Found",
+    "no_groups_filtered": "No groups match your current filters.",
+    "no_groups_available": "No groups are currently available.",
+    "search_placeholder": "Search groups...",
+    "age_range": "Age Range",
+    "categories": {
+      "all": "All Categories",
+      "bible_study": "Bible Study",
+      "prayer": "Prayer",
+      "fellowship": "Fellowship",
+      "discipleship": "Discipleship",
+      "service": "Service",
+      "youth": "Youth",
+      "seniors": "Seniors", 
+      "couples": "Couples",
+      "singles": "Singles"
+    },
+    "languages": {
+      "all": "All Languages",
+      "zh-HK": "繁體中文 (Hong Kong)",
+      "zh-CN": "简体中文",
+      "en": "English",
+      "mixed": "Mixed Languages"
+    },
+    "gender": {
+      "all": "All",
+      "mixed": "Mixed",
+      "male_only": "Men Only",
+      "female_only": "Women Only"
+    }
+  },
+
+  "common": {
+    "try_again": "Try Again",
+    "load_more": "Load More"
+  }
+}
