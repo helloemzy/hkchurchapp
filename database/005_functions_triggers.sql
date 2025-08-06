@@ -689,9 +689,15 @@ BEGIN
     GET DIAGNOSTICS deleted_count = ROW_COUNT;
     total_deleted := total_deleted + deleted_count;
     
-    -- Clean up orphaned files
-    deleted_count := cleanup_orphaned_files();
-    total_deleted := total_deleted + deleted_count;
+    -- Clean up orphaned files (conditional - only if function exists)
+    BEGIN
+        deleted_count := cleanup_orphaned_files();
+        total_deleted := total_deleted + deleted_count;
+    EXCEPTION
+        WHEN undefined_function THEN
+            deleted_count := 0; -- Function not available, skip cleanup
+            RAISE NOTICE 'Storage cleanup function not available, skipping file cleanup';
+    END;
     
     cleanup_stats := jsonb_build_object(
         'total_records_deleted', total_deleted,

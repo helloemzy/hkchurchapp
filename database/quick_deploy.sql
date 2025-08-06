@@ -185,22 +185,22 @@ BEGIN
     RAISE NOTICE 'Step 2/4: Creating Essential Indexes...';
 END $$;
 
--- Essential indexes for core functionality
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_profiles_email ON profiles(email);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_profiles_is_active ON profiles(is_active);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_devotions_date ON devotions(date);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_devotions_is_published ON devotions(is_published);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_events_start_datetime ON events(start_datetime);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_events_is_public ON events(is_public);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_prayer_requests_is_public ON prayer_requests(is_public);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_prayer_requests_created_at ON prayer_requests(created_at);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_small_groups_is_public ON small_groups(is_public);
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_small_groups_is_open_to_join ON small_groups(is_open_to_join);
+-- Essential indexes for core functionality (SUPABASE COMPATIBLE - NO CONCURRENTLY)
+CREATE INDEX IF NOT EXISTS idx_profiles_email ON profiles(email);
+CREATE INDEX IF NOT EXISTS idx_profiles_is_active ON profiles(is_active);
+CREATE INDEX IF NOT EXISTS idx_devotions_date ON devotions(date);
+CREATE INDEX IF NOT EXISTS idx_devotions_is_published ON devotions(is_published);
+CREATE INDEX IF NOT EXISTS idx_events_start_datetime ON events(start_datetime);
+CREATE INDEX IF NOT EXISTS idx_events_is_public ON events(is_public);
+CREATE INDEX IF NOT EXISTS idx_prayer_requests_is_public ON prayer_requests(is_public);
+CREATE INDEX IF NOT EXISTS idx_prayer_requests_created_at ON prayer_requests(created_at);
+CREATE INDEX IF NOT EXISTS idx_small_groups_is_public ON small_groups(is_public);
+CREATE INDEX IF NOT EXISTS idx_small_groups_is_open_to_join ON small_groups(is_open_to_join);
 
 -- Full-text search indexes
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_devotions_title_search ON devotions USING gin(to_tsvector('english', title));
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_events_title_search ON events USING gin(to_tsvector('english', title));
-CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_prayer_requests_title_search ON prayer_requests USING gin(to_tsvector('english', title));
+CREATE INDEX IF NOT EXISTS idx_devotions_title_search ON devotions USING gin(to_tsvector('english', title));
+CREATE INDEX IF NOT EXISTS idx_events_title_search ON events USING gin(to_tsvector('english', title));
+CREATE INDEX IF NOT EXISTS idx_prayer_requests_title_search ON prayer_requests USING gin(to_tsvector('english', title));
 
 -- ==================================================
 -- STEP 3: ESSENTIAL SECURITY (from 003_security_and_rls.sql)
@@ -240,7 +240,7 @@ BEGIN
         LIMIT 1
     );
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER;
 
 CREATE OR REPLACE FUNCTION has_role_or_higher(required_role user_role, user_uuid UUID DEFAULT auth.uid())
 RETURNS boolean AS $$
@@ -267,7 +267,7 @@ BEGIN
     
     RETURN user_role_level <= required_role_level;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$$ LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER;
 
 -- Essential RLS policies
 CREATE POLICY "Users can view own profile" ON profiles
