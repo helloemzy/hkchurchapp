@@ -69,12 +69,16 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   const [notes, setNotes] = useState('');
   const [selectedColor, setSelectedColor] = useState(HIGHLIGHT_COLORS[0]);
   const [maxChapters, setMaxChapters] = useState(150); // Default for Psalms
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   const { user } = useAuthContext();
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetchChapterContent();
+    fetchBookInfo();
   }, [currentBook, currentChapter, language]);
 
   useEffect(() => {
@@ -86,12 +90,34 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
   const fetchChapterContent = async () => {
     setLoading(true);
     try {
-      // In a real implementation, this would call a Bible API
-      // For now, we'll simulate with sample content
-      const sampleVerses = generateSampleVerses(currentBook, currentChapter);
-      setVerses(sampleVerses);
+      const response = await fetch(`/api/bible/verses?book=${currentBook}&chapter=${currentChapter}&lang=${language}`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.verses && data.verses.length > 0) {
+          const transformedVerses = data.verses.map((v: any) => ({
+            book: v.book_name,
+            chapter: v.chapter,
+            verse: v.verse,
+            text: v.text,
+            text_zh: language === 'zh' ? v.text : v.text_zh
+          }));
+          setVerses(transformedVerses);
+        } else {
+          // Fallback to sample content if no verses found
+          const sampleVerses = generateSampleVerses(currentBook, currentChapter);
+          setVerses(sampleVerses);
+        }
+      } else {
+        // Fallback to sample content if API fails
+        const sampleVerses = generateSampleVerses(currentBook, currentChapter);
+        setVerses(sampleVerses);
+      }
     } catch (error) {
       console.error('Error fetching Bible content:', error);
+      // Fallback to sample content
+      const sampleVerses = generateSampleVerses(currentBook, currentChapter);
+      setVerses(sampleVerses);
     } finally {
       setLoading(false);
     }
@@ -107,6 +133,22 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
       }
     } catch (error) {
       console.error('Error fetching bookmarks:', error);
+    }
+  };
+
+  const fetchBookInfo = async () => {
+    try {
+      const response = await fetch(`/api/bible/verses?book=${currentBook}&lang=${language}`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.book && data.book.chapter_count) {
+          setMaxChapters(data.book.chapter_count);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching book info:', error);
+      // Keep default max chapters
     }
   };
 
@@ -248,6 +290,29 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
     }
   };
 
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return;
+
+    try {
+      const response = await fetch(`/api/bible/verses?search=${encodeURIComponent(searchQuery)}&lang=${language}&limit=20`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        setSearchResults(data.verses || []);
+      }
+    } catch (error) {
+      console.error('Error searching Bible:', error);
+    }
+  };
+
+  const handleSearchResultClick = (result: any) => {
+    setCurrentBook(result.book_name);
+    setCurrentChapter(result.chapter);
+    setShowSearch(false);
+    setSearchQuery('');
+    setSearchResults([]);
+  };
+
   const navigateChapter = (direction: 'prev' | 'next') => {
     if (direction === 'prev' && currentChapter > 1) {
       setCurrentChapter(currentChapter - 1);
@@ -310,11 +375,64 @@ export const BibleReader: React.FC<BibleReaderProps> = ({
             </div>
           </div>
 
-          <div className="text-sm text-gray-600">
-            {language === 'zh' ? '繁體中文' : 'English'}
+          <div className="flex items-center gap-3">
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => setShowSearch(!showSearch)}
+            >
+              🔍 Search
+            </Button>
+            <div className="text-sm text-gray-600">
+              {language === 'zh' ? '繁體中文' : 'English'}
+            </div>
           </div>
         </div>
       </Card>
+
+      {/* Search Interface */}
+      {showSearch && (
+        <Card className="p-4 mb-6 bg-blue-50 border-blue-200">
+          <div className="flex gap-3 items-center">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+              placeholder={language === 'zh' ? '搜尋聖經...' : 'Search the Bible...'}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            />
+            <Button onClick={handleSearch} disabled={!searchQuery.trim()}>
+              Search
+            </Button>
+          </div>
+
+          {searchResults.length > 0 && (
+            <div className="mt-4 space-y-2 max-h-60 overflow-y-auto">
+              <h4 className="font-semibold text-gray-700 text-sm">Search Results:</h4>
+              {searchResults.map((result, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleSearchResultClick(result)}
+                  className="p-3 bg-white rounded border cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-medium text-primary-600">
+                      {result.reference}
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      Click to read
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {result.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </Card>
+      )}
 
       {/* Chapter Content */}
       <Card className="p-6 mb-6">

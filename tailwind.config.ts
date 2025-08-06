@@ -9,44 +9,70 @@ const config: Config = {
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
-      // Hong Kong Church Color Palette
+      // Enhanced Hong Kong Church Color Palette
       colors: {
         primary: {
-          50: '#f3e8ff',
-          100: '#e9d5ff', 
-          200: '#d9bfff',
-          300: '#c4a3ff',
-          400: '#a78bfa',
-          500: '#7c3aed', // Main brand color
-          600: '#6d28d9',
-          700: '#5b21b6',
-          800: '#4c1d95',
-          900: '#3c1361',
+          25: '#f8f7ff',
+          50: '#f0edff',
+          100: '#e4dcff',
+          200: '#d1c4ff',
+          300: '#b8a3ff',
+          400: '#9b7ff0',
+          500: '#8366d9', // Softer main brand color
+          600: '#6b51c2',
+          700: '#5640a6',
+          800: '#432f85',
+          900: '#2f1f5c',
+          950: '#1a0f35',
         },
-        // Semantic colors
+        // Enhanced semantic colors
         success: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          500: '#10b981',
-          600: '#059669',
+          50: '#f0fdf4',
+          100: '#dcfce7',
+          200: '#bbf7d0',
+          300: '#86efac',
+          400: '#4ade80',
+          500: '#16a34a',
+          600: '#15803d',
+          700: '#166534',
+          800: '#14532d',
+          900: '#14532d',
         },
         warning: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          500: '#f59e0b',
-          600: '#d97706',
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#ea580c',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         },
         error: {
           50: '#fef2f2',
           100: '#fee2e2',
-          500: '#ef4444',
-          600: '#dc2626',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#dc2626',
+          600: '#b91c1c',
+          700: '#991b1b',
+          800: '#7f1d1d',
+          900: '#7f1d1d',
         },
         info: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
         },
         // Event categories
         event: {
@@ -55,15 +81,22 @@ const config: Config = {
           study: '#f59e0b',
           service: '#3b82f6',
         },
-        // Special purpose colors
+        // Spiritual theme colors
         devotion: {
-          lavender: '#e6e6fa',
+          dawn: '#fef7e0',
+          lavender: '#f3efff',
         },
         prayer: {
-          gold: '#fef3c7',
+          gold: '#fff8e1',
         },
         scripture: {
-          blue: '#dbeafe',
+          sage: '#f0f8f4',
+        },
+        worship: {
+          rose: '#fdf2f8',
+        },
+        fellowship: {
+          sky: '#f0f9ff',
         },
         // Enhanced gray scale
         gray: {
@@ -165,11 +198,16 @@ const config: Config = {
         'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       
-      // Background images for gradients
+      // Enhanced background gradients
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #A8E6F5 0%, #D4A5FF 100%)',
-        'gradient-devotion': 'linear-gradient(135deg, #E9D5FF 0%, #FDE68A 50%, #A8E6F5 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #7C3AED 0%, #EC4899 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #f8f7ff 0%, #e4dcff 50%, #d1c4ff 100%)',
+        'gradient-devotion': 'linear-gradient(135deg, #fef7e0 0%, #f3efff 50%, #fff8e1 100%)',
+        'gradient-worship': 'linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%)',
+        'gradient-prayer': 'linear-gradient(135deg, #fff8e1 0%, #f3efff 100%)',
+        'gradient-scripture': 'linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #9b7ff0 0%, #d1c4ff 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fef7e0 30%, #f0f9ff 70%, #f3efff 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #27272a 0%, #2a2a2e 50%, #3f3f46 100%)',
       },
       
       // Container widths

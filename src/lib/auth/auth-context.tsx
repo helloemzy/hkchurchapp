@@ -282,6 +282,9 @@ export function useAuth() {
   return context;
 }
 
+// Alias for compatibility
+export const useAuthContext = useAuth;
+
 export function useRequireAuth(redirectTo = '/auth/login') {
   const { user, loading } = useAuth();
   const router = useRouter();
