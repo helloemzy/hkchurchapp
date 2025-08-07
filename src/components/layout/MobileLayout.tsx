@@ -32,7 +32,7 @@ const MobileLayout = React.forwardRef<HTMLDivElement, MobileLayoutProps>(
       <div
         ref={ref}
         className={cn(
-          'relative w-full bg-white',
+          'relative w-full bg-background',
           fullHeight && 'min-h-screen',
           safeArea && 'safe-area-inset',
           className
@@ -56,7 +56,7 @@ const MobileLayout = React.forwardRef<HTMLDivElement, MobileLayoutProps>(
         
         {/* Bottom Navigation */}
         {showBottomNav && bottomNavContent && (
-          <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200">
+          <nav className="fixed bottom-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-t border-border safe-area-bottom">
             <div className="px-4 py-2">
               {bottomNavContent}
             </div>

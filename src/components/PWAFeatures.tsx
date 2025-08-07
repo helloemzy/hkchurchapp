@@ -161,7 +161,7 @@ const PWAFeatures: React.FC = () => {
             </p>
             <div 
               ref={contentRef}
-              className="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-lg border-2 border-dashed border-gray-300 min-h-[200px] flex items-center justify-center"
+              className="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300 min-h-[200px] flex items-center justify-center"
             >
               <div className="text-center">
                 <div className="text-4xl mb-4">⛪</div>
@@ -250,7 +250,7 @@ const PWAFeatures: React.FC = () => {
 
         {/* Installation Prompt */}
         {features.isInstallable && !features.isInstalled && (
-          <div className="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+          <div className="mt-8 bg-primary-50 p-6 rounded-lg border border-primary-200">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               📱 Install Hong Kong Church App
             </h3>
@@ -259,7 +259,7 @@ const PWAFeatures: React.FC = () => {
             </p>
             <button
               onClick={actions.showInstallPrompt}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+              className="bg-primary-500 text-white px-6 py-2 rounded-lg hover:bg-primary-600 transition-all"
             >
               ⬇ Install App
             </button>

@@ -22,7 +22,7 @@ export function BottomNavigation({ items, className }: BottomNavigationProps) {
   return (
     <nav 
       className={cn(
-        'flex items-center justify-around bg-white border-t border-gray-200 px-2 py-1',
+        'flex items-center justify-around bg-white/95 backdrop-blur-md border-t border-gray-200 px-2 py-2 shadow-lg',
         className
       )}
     >
@@ -32,10 +32,11 @@ export function BottomNavigation({ items, className }: BottomNavigationProps) {
           onClick={item.onClick}
           disabled={item.disabled}
           className={cn(
-            'flex flex-col items-center justify-center px-3 py-2 rounded-lg text-xs font-medium transition-colors relative min-w-0 flex-1',
+            'flex flex-col items-center justify-center px-3 py-3 rounded-lg text-xs font-medium transition-all duration-200 relative min-w-0 flex-1 touch-target',
+            'min-h-[44px]', // Ensure minimum touch target
             item.active 
-              ? 'text-primary-600 bg-primary-50' 
-              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50',
+              ? 'text-primary bg-primary/10 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200',
             item.disabled && 'opacity-50 cursor-not-allowed'
           )}
         >
@@ -45,7 +46,7 @@ export function BottomNavigation({ items, className }: BottomNavigationProps) {
           <span className="truncate">{item.label}</span>
           
           {item.badge && (
-            <span className="absolute -top-1 -right-1 h-5 w-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+            <span className="absolute -top-1 -right-1 h-5 w-5 bg-error text-white text-xs rounded-full flex items-center justify-center min-w-[20px] shadow-sm">
               {typeof item.badge === 'number' && item.badge > 9 ? '9+' : item.badge}
             </span>
           )}

@@ -83,7 +83,7 @@ const generationActivities: GenerationActivity[] = [
     descriptionZh: '青年教授科技，長者分享人生智慧',
     nextSession: '2025-01-08',
     icon: '📱',
-    color: 'bg-gradient-youth-energy'
+    color: 'bg-primary-100'
   },
   {
     id: '2',
@@ -95,7 +95,7 @@ const generationActivities: GenerationActivity[] = [
     descriptionZh: '長者分享移民故事，青年記錄家族歷史',
     nextSession: '2025-01-10',
     icon: '📚',
-    color: 'bg-gradient-elder-wisdom'
+    color: 'bg-gray-100'
   },
   {
     id: '3',
@@ -107,7 +107,7 @@ const generationActivities: GenerationActivity[] = [
     descriptionZh: '跨世代禱告與即時翻譯',
     nextSession: '2025-01-07',
     icon: '🙏',
-    color: 'bg-gradient-family-unity'
+    color: 'bg-success-100'
   },
   {
     id: '4',
@@ -119,7 +119,7 @@ const generationActivities: GenerationActivity[] = [
     descriptionZh: '結合傳統價值與現代方法的聯合服務項目',
     nextSession: '2025-01-12',
     icon: '🤝',
-    color: 'bg-gradient-cultural'
+    color: 'bg-warning-100'
   }
 ];
 
@@ -130,20 +130,20 @@ export function GenerationBridge() {
   const getConnectionTypeInfo = (type: FamilyConnection['connectionType']) => {
     switch (type) {
       case 'translation':
-        return { icon: '🌐', label: 'Translation Help', labelZh: '翻譯幫助', color: 'text-chinese-jade' };
+        return { icon: '🌐', label: 'Translation Help', labelZh: '翻譯幫助', color: 'text-success-600' };
       case 'tech-help':
-        return { icon: '💻', label: 'Tech Support', labelZh: '科技支援', color: 'text-youth-innovation' };
+        return { icon: '💻', label: 'Tech Support', labelZh: '科技支援', color: 'text-primary-600' };
       case 'devotion':
-        return { icon: '📖', label: 'Devotion Partner', labelZh: '靈修夥伴', color: 'text-chinese-gold' };
+        return { icon: '📖', label: 'Devotion Partner', labelZh: '靈修夥伴', color: 'text-warning-600' };
       case 'mentorship':
-        return { icon: '🎓', label: 'Life Mentorship', labelZh: '人生指導', color: 'text-elder-wisdom' };
+        return { icon: '🎓', label: 'Life Mentorship', labelZh: '人生指導', color: 'text-gray-600' };
     }
   };
 
   const getStatusColor = (status: FamilyConnection['status']) => {
     switch (status) {
-      case 'active': return 'bg-chinese-jade text-white';
-      case 'pending': return 'bg-chinese-gold text-white';
+      case 'active': return 'bg-success-500 text-white';
+      case 'pending': return 'bg-warning-500 text-white';
       case 'completed': return 'bg-gray-400 text-white';
     }
   };
@@ -202,7 +202,7 @@ export function GenerationBridge() {
               return (
                 <Card
                   key={connection.id}
-                  className="hover:shadow-lg transition-shadow cursor-pointer bg-gradient-family-unity"
+                  className="hover:shadow-lg transition-shadow cursor-pointer bg-success-100"
                   onClick={() => setSelectedConnection(connection)}
                 >
                   <div className="p-6">
@@ -227,9 +227,9 @@ export function GenerationBridge() {
                       </div>
 
                       <div className="flex items-center justify-center">
-                        <div className="w-8 h-0.5 bg-chinese-gold rounded-full"></div>
-                        <span className="mx-2 text-chinese-gold">🤝</span>
-                        <div className="w-8 h-0.5 bg-chinese-gold rounded-full"></div>
+                        <div className="w-8 h-0.5 bg-warning-400 rounded-full"></div>
+                        <span className="mx-2 text-warning-500">🤝</span>
+                        <div className="w-8 h-0.5 bg-warning-400 rounded-full"></div>
                       </div>
 
                       <div className="flex items-center gap-3">
@@ -286,12 +286,12 @@ export function GenerationBridge() {
                     <div className="text-right">
                       <div className="flex items-center gap-2 text-sm">
                         <span className="flex items-center gap-1">
-                          <span className="text-elder-wisdom">👴</span>
+                          <span className="text-gray-600">👴</span>
                           {activity.participants.elders}
                         </span>
                         <span className="text-gray-400">+</span>
                         <span className="flex items-center gap-1">
-                          <span className="text-youth-energy">👦</span>
+                          <span className="text-primary-600">👦</span>
                           {activity.participants.youth}
                         </span>
                       </div>
@@ -335,7 +335,7 @@ export function GenerationBridge() {
       {selectedConnection && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl max-w-md w-full">
-            <div className="bg-gradient-family-unity p-6 rounded-t-2xl">
+            <div className="bg-success-100 p-6 rounded-t-2xl">
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-bold text-gray-900">
                   Family Connection Details
@@ -381,7 +381,7 @@ export function GenerationBridge() {
                   {selectedConnection.sharedInterests.map((interest, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-chinese-gold/20 text-chinese-gold text-sm rounded-full"
+                      className="px-3 py-1 bg-warning-100 text-warning-600 text-sm rounded-full"
                     >
                       {interest}
                     </span>

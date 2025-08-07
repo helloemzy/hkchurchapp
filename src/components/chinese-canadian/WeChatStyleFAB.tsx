@@ -27,35 +27,35 @@ export function WeChatStyleFAB({
       icon: '🙏',
       label: 'Prayer Wall',
       labelZh: '禱告牆',
-      color: 'bg-chinese-red/90',
+      color: 'bg-primary-500',
       onClick: onPrayerWall,
     },
     {
       icon: '💝',
       label: 'Offerings',
       labelZh: '奉獻',
-      color: 'bg-chinese-gold/90',
+      color: 'bg-warning-500',
       onClick: onOffering,
     },
     {
       icon: '👨‍👩‍👧‍👦',
       label: 'Family Connect',
       labelZh: '家庭連結',
-      color: 'bg-chinese-jade/90',
+      color: 'bg-success-500',
       onClick: onFamilyConnect,
     },
     {
       icon: '🗓️',
       label: 'Cultural Calendar',
       labelZh: '文化日曆',
-      color: 'bg-festival-lantern/90',
+      color: 'bg-gray-600',
       onClick: onCulturalCalendar,
     },
     {
       icon: '👴',
       label: 'Elder Helper',
       labelZh: '長者助手',
-      color: 'bg-elder-wisdom/90',
+      color: 'bg-gray-700',
       onClick: onElderHelp,
     },
   ];
@@ -77,7 +77,7 @@ export function WeChatStyleFAB({
             }}
           >
             {/* Label */}
-            <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border border-gray-200/50 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md border border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity">
               <p className="text-sm font-medium text-gray-900 whitespace-nowrap">
                 {item.label}
               </p>
@@ -103,7 +103,7 @@ export function WeChatStyleFAB({
       {/* Main FAB Button */}
       <button
         onClick={toggleMenu}
-        className={`w-14 h-14 bg-gradient-accent hover:scale-110 active:scale-95 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:shadow-xl ${
+        className={`w-14 h-14 bg-primary-500 hover:bg-primary-600 hover:scale-110 active:scale-95 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:shadow-xl ${
           isOpen ? 'rotate-45' : 'rotate-0'
         }`}
       >

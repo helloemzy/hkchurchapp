@@ -478,7 +478,7 @@ export default function BetaLaunchDashboard({
       </Card>
 
       {/* Success Targets Summary */}
-      <Card className="p-6 bg-gradient-to-r from-purple-50 to-blue-50">
+      <Card className="p-6 bg-primary-50">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
           <Target className="h-5 w-5 text-purple-600" />
           Beta Success Targets Summary

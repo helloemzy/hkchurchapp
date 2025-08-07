@@ -5,53 +5,23 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const cardVariants = cva(
-  'rounded-xl transition-all duration-300 ease-out relative overflow-hidden',
+  'rounded-lg bg-white border border-gray-200 shadow-card transition-fast',
   {
     variants: {
       variant: {
-        default: 'bg-warm-cream dark:bg-rich-chocolate shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.02] border border-warm-sand/50 dark:border-mushroom/50 backdrop-blur-sm',
-        devotion: 'bg-gradient-devotion rounded-2xl shadow-terracotta hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-devotion-dawn/30 shimmer-effect',
-        worship: 'bg-gradient-worship rounded-xl shadow-clay hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-worship-clay/30 shimmer-effect',
-        event: 'bg-warm-cream/90 dark:bg-rich-chocolate/90 border border-soft-taupe/50 dark:border-mushroom/50 rounded-xl hover:shadow-terracotta hover:-translate-y-2 hover:scale-[1.01] backdrop-blur-md',
-        group: 'bg-warm-cream/95 dark:bg-rich-chocolate/95 shadow-card hover:shadow-sage hover:-translate-y-2 hover:scale-[1.01] overflow-hidden rounded-xl border border-warm-sand/50 dark:border-mushroom/50 backdrop-blur-sm',
-        prayer: 'bg-gradient-prayer border border-prayer-gold/40 rounded-xl shadow-golden-harvest hover:shadow-harvest hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        scripture: 'bg-gradient-scripture border border-scripture-sage/40 rounded-xl shadow-sage hover:shadow-forest hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        gradient: 'bg-gradient-primary shadow-terracotta hover:shadow-glow-terracotta hover:-translate-y-3 hover:scale-[1.02] shimmer-effect',
-        elevated: 'bg-warm-cream/98 dark:bg-rich-chocolate/98 shadow-xl border border-warm-sand/50 dark:border-mushroom/50 rounded-2xl hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md',
-        hero: 'bg-gradient-hero shadow-xl rounded-3xl border border-terracotta/30 hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        // Earthy natural variants inspired by warm earth tones
-        vibrant: 'bg-gradient-terracotta text-white shadow-terracotta hover:shadow-glow-terracotta hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        cultural: 'bg-gradient-chinese-celebration text-white shadow-chinese-red hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
-        jade: 'bg-gradient-jade-earth text-white shadow-jade-earth hover:shadow-glow-sage hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        festival: 'bg-gradient-festival-warmth text-white shadow-clay hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
-        organic: 'bg-gradient-organic-flow text-white shadow-harvest hover:shadow-glow-terracotta hover:-translate-y-4 hover:scale-[1.03] border-none animate-pulse-slow',
-        
-        // Additional earthy variants
-        sage: 'bg-gradient-sage text-rich-chocolate shadow-sage hover:shadow-glow-sage hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        forest: 'bg-gradient-forest text-white shadow-forest hover:shadow-glow-forest hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        harvest: 'bg-gradient-harvest text-rich-chocolate shadow-harvest hover:shadow-golden-harvest hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        mushroom: 'bg-gradient-mushroom text-warm-cream shadow-mushroom hover:shadow-glow-soft hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        default: 'hover:shadow-md',
+        interactive: 'hover:shadow-md hover:border-gray-300 cursor-pointer',
+        elevated: 'shadow-lg border-gray-100',
       },
       size: {
         sm: 'p-4',
-        md: 'p-5',
-        lg: 'p-6',
-        xl: 'p-8',
-      },
-      interactive: {
-        true: 'cursor-pointer select-none',
-        false: '',
-      },
-      bordered: {
-        true: 'border border-gray-200 dark:border-gray-700',
-        false: '',
+        md: 'p-6',
+        lg: 'p-8',
       },
     },
     defaultVariants: {
       variant: 'default',
       size: 'md',
-      interactive: false,
-      bordered: false,
     },
   }
 )
@@ -63,12 +33,12 @@ export interface CardProps
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant, size, interactive, bordered, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? 'div' : 'div'
     
     return (
       <Comp
-        className={cn(cardVariants({ variant, size, interactive, bordered, className }))}
+        className={cn(cardVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
@@ -83,7 +53,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('flex flex-col space-y-1.5', className)}
+    className={cn('flex flex-col space-y-1.5 pb-4', className)}
     {...props}
   />
 ))
@@ -95,7 +65,7 @@ const CardTitle = React.forwardRef<
 >(({ className, as: Comp = 'h3', ...props }, ref) => (
   <Comp
     ref={ref}
-    className={cn('font-display text-h4 font-semibold leading-none tracking-tight', className)}
+    className={cn('text-lg font-semibold leading-none tracking-tight text-gray-900', className)}
     {...props}
   />
 ))
@@ -107,7 +77,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('text-sm text-gray-600 dark:text-gray-400', className)}
+    className={cn('text-sm text-gray-600', className)}
     {...props}
   />
 ))
@@ -127,13 +97,13 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('flex items-center pt-0', className)}
+    className={cn('flex items-center pt-4', className)}
     {...props}
   />
 ))
 CardFooter.displayName = 'CardFooter'
 
-// Specialized Card Components
+// Specialized Card Components with clean design
 export interface DevotionCardProps extends Omit<CardProps, 'variant'> {
   title: string
   date: string
@@ -146,71 +116,37 @@ export interface DevotionCardProps extends Omit<CardProps, 'variant'> {
 const DevotionCard = React.forwardRef<HTMLDivElement, DevotionCardProps>(
   ({ title, date, verse, excerpt, readTime, onRead, className, ...props }, ref) => (
     <Card
-      variant="devotion"
-      interactive={!!onRead}
+      variant={onRead ? "interactive" : "default"}
       onClick={onRead}
-      className={cn('relative overflow-hidden group', className)}
+      className={className}
       ref={ref}
       {...props}
     >
-      {/* Floating earthy orbs inspired by natural elements */}
-      <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-terracotta via-dusty-rose to-golden-harvest rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 animate-bounce" 
-           style={{ animationDuration: '6s' }} />
-      <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-sage-green via-mushroom to-clay-red rounded-full opacity-15 group-hover:opacity-30 transition-all duration-700 animate-pulse" />
-      
-      <CardHeader className="relative z-10">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <div className="w-3 h-3 bg-gradient-to-r from-terracotta to-golden-harvest rounded-full animate-pulse"></div>
-              <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-terracotta to-golden-harvest rounded-full animate-ping opacity-30"></div>
-            </div>
-            <CardTitle className="text-deep-forest dark:text-warm-sand group-hover:text-terracotta transition-colors font-bold text-lg">
-              {title}
-            </CardTitle>
-          </div>
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-gray-900">{title}</CardTitle>
           {readTime && (
-            <span className="text-xs font-semibold text-white bg-gradient-to-r from-terracotta to-dusty-rose px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg group-hover:shadow-xl transition-all">
+            <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
               {readTime}
             </span>
           )}
         </div>
-        <CardDescription className="text-chinese-tea dark:text-warm-sand font-semibold text-sm">
-          {date}
-        </CardDescription>
+        <CardDescription className="text-gray-600">{date}</CardDescription>
         {verse && (
-          <div className="mt-5 p-5 bg-warm-cream/80 dark:bg-rich-chocolate/70 rounded-2xl border border-warm-sand/60 backdrop-blur-md shadow-inner relative overflow-hidden">
-            {/* Scripture decoration */}
-            <div className="absolute top-2 right-2 w-8 h-8 bg-gradient-to-br from-sage-green to-dusty-rose rounded-full opacity-20"></div>
-            <div className="flex items-start gap-3">
-              <div className="text-terracotta text-3xl font-bold leading-none">"</div>
-              <p className="text-sm font-medium text-deep-forest dark:text-warm-sand italic leading-relaxed flex-1">
-                {verse}
-              </p>
-            </div>
+          <div className="mt-4 p-4 bg-gray-50 rounded-md border-l-4 border-primary-500">
+            <p className="text-sm text-gray-700 italic leading-relaxed">
+              {verse}
+            </p>
           </div>
         )}
       </CardHeader>
       {excerpt && (
-        <CardContent className="relative z-10">
-          <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3 leading-relaxed">
+        <CardContent>
+          <p className="text-sm text-gray-600 line-clamp-3 leading-relaxed">
             {excerpt}
           </p>
         </CardContent>
       )}
-      
-      {/* Enhanced progress indicator inspired by reference 120690 */}
-      <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 rounded-full px-3 py-2 backdrop-blur-sm">
-        <div className="flex items-center gap-1">
-          <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full opacity-70"></div>
-          <div className="w-2 h-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full opacity-50"></div>
-        </div>
-        <span className="text-xs text-purple-600 font-medium">Continue</span>
-      </div>
-      
-      {/* Shimmer effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
     </Card>
   )
 )
@@ -232,36 +168,20 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
   ({ title, date, time, location, category, attendees, maxAttendees, onJoin, onShare, className, ...props }, ref) => {
     const categoryConfig = {
       worship: { 
-        bg: 'bg-gradient-to-r from-terracotta to-burnt-orange', 
-        text: 'text-white font-semibold', 
-        border: 'border-terracotta/50',
-        icon: '🙏',
-        cardBg: 'bg-gradient-to-br from-warm-cream via-warm-sand to-soft-taupe',
-        shadow: 'shadow-terracotta'
+        color: 'text-purple-700 bg-purple-100', 
+        icon: '🙏' 
       },
       fellowship: { 
-        bg: 'bg-gradient-to-r from-sage-green to-jade-earth', 
-        text: 'text-white font-semibold', 
-        border: 'border-sage-green/50',
-        icon: '🤝',
-        cardBg: 'bg-gradient-to-br from-warm-cream via-fellowship-warm to-sage-green/10',
-        shadow: 'shadow-sage'
+        color: 'text-green-700 bg-green-100', 
+        icon: '🤝' 
       },
       study: { 
-        bg: 'bg-gradient-to-r from-golden-harvest to-burnt-orange', 
-        text: 'text-rich-chocolate font-semibold', 
-        border: 'border-golden-harvest/50',
-        icon: '📖',
-        cardBg: 'bg-gradient-to-br from-warm-cream via-prayer-gold to-golden-harvest/10',
-        shadow: 'shadow-harvest'
+        color: 'text-blue-700 bg-blue-100', 
+        icon: '📖' 
       },
       service: { 
-        bg: 'bg-gradient-to-r from-chinese-tea to-mushroom', 
-        text: 'text-white font-semibold', 
-        border: 'border-chinese-tea/50',
-        icon: '❤️',
-        cardBg: 'bg-gradient-to-br from-warm-cream via-soft-taupe to-mushroom/10',
-        shadow: 'shadow-mushroom'
+        color: 'text-orange-700 bg-orange-100', 
+        icon: '❤️' 
       },
     }
 
@@ -271,66 +191,32 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
 
     return (
       <Card
-        variant="event"
-        interactive={!!onJoin}
-        className={cn('group relative overflow-hidden', config.cardBg, className)}
-        style={{ 
-          boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.1)', 
-        }}
+        variant={onJoin ? "interactive" : "default"}
+        className={className}
         ref={ref}
         {...props}
       >
-        {/* Vibrant background decoration inspired by reference 29377 */}
-        <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
-          <div className={cn(
-            'w-full h-full rounded-full transform translate-x-8 -translate-y-8',
-            config.bg
-          )}></div>
-        </div>
-        
-        <CardHeader className="relative z-10">
+        <CardHeader>
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3">
                 <div className={cn(
-                  'flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-2xl border-none shadow-lg backdrop-blur-sm transform group-hover:scale-105 transition-all',
-                  config.bg,
-                  config.text
+                  'flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full',
+                  config.color
                 )}>
-                  <span className="text-lg">{config.icon}</span>
+                  <span>{config.icon}</span>
                   <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                 </div>
                 {attendees !== undefined && maxAttendees && (
-                  <div className="flex items-center gap-3">
-                    <div className={cn(
-                      'px-3 py-1.5 text-xs font-bold rounded-full shadow-md backdrop-blur-sm',
-                      isNearlyFull ? 'bg-gradient-to-r from-red-400 to-pink-500 text-white' : 'bg-white/90 text-gray-700'
-                    )}>
-                      {attendees}/{maxAttendees}
-                    </div>
-                    {/* Enhanced visual attendance indicator */}
-                    <div className="flex flex-col gap-1">
-                      <div className="w-20 h-2 bg-white/50 rounded-full overflow-hidden shadow-inner">
-                        <div 
-                          className={cn(
-                            'h-full transition-all duration-700 rounded-full',
-                            isNearlyFull 
-                              ? 'bg-gradient-to-r from-red-400 to-pink-500' 
-                              : 'bg-gradient-to-r from-green-400 to-emerald-500'
-                          )}
-                          style={{ width: `${Math.min(attendancePercentage * 100, 100)}%` }}
-                        />
-                      </div>
-                      <span className="text-xs text-gray-600 font-medium">
-                        {Math.round(attendancePercentage * 100)}% full
-                      </span>
-                    </div>
+                  <div className={cn(
+                    'px-2 py-1 text-xs font-medium rounded-full',
+                    isNearlyFull ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'
+                  )}>
+                    {attendees}/{maxAttendees}
                   </div>
                 )}
               </div>
-              <CardTitle className="group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                {title}
-              </CardTitle>
+              <CardTitle className="text-gray-900 mb-2">{title}</CardTitle>
             </div>
             {onShare && (
               <button
@@ -338,7 +224,7 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
                   e.stopPropagation()
                   onShare()
                 }}
-                className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+                className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-fast"
                 aria-label="Share event"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -347,40 +233,31 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
               </button>
             )}
           </div>
-          <div className="space-y-1">
-            <CardDescription className="flex items-center gap-2">
+          <div className="space-y-1 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               {date} at {time}
-            </CardDescription>
+            </div>
             {location && (
-              <CardDescription className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 {location}
-              </CardDescription>
+              </div>
             )}
           </div>
         </CardHeader>
         {onJoin && (
-          <CardFooter className="pt-4">
+          <CardFooter>
             <button
               onClick={onJoin}
-              className={cn(
-                'w-full py-3 px-6 rounded-2xl font-bold text-white shadow-lg transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden',
-                config.bg,
-                'hover:shadow-xl active:scale-[0.98]'
-              )}
+              className="w-full py-2 px-4 bg-primary-500 text-white font-medium rounded-md hover:bg-primary-600 transition-fast"
             >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                <span>Join Event</span>
-                <span className="text-lg">✨</span>
-              </span>
-              {/* Button shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700"></div>
+              Join Event
             </button>
           </CardFooter>
         )}
@@ -404,59 +281,54 @@ export interface GroupCardProps extends Omit<CardProps, 'variant'> {
 const GroupCard = React.forwardRef<HTMLDivElement, GroupCardProps>(
   ({ name, description, memberCount, category, imageUrl, isJoined, onJoin, onView, className, ...props }, ref) => (
     <Card
-      variant="group"
-      interactive={!!onView}
+      variant={onView ? "interactive" : "default"}
       onClick={onView}
-      className={cn('group', className)}
+      className={className}
       ref={ref}
       {...props}
     >
       {imageUrl && (
-        <div className="aspect-video w-full overflow-hidden rounded-t-xl">
+        <div className="aspect-video w-full overflow-hidden rounded-t-lg -m-6 mb-4">
           <img
             src={imageUrl}
             alt={name}
-            className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
       )}
-      <div className="p-5">
-        <CardHeader>
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-primary-600 bg-primary-100 px-2 py-1 rounded-full">
-              {category}
-            </span>
-            <span className="text-xs text-gray-500">
-              {memberCount} {memberCount === 1 ? 'member' : 'members'}
-            </span>
-          </div>
-          <CardTitle className="group-hover:text-primary-600 transition-colors">
-            {name}
-          </CardTitle>
-          <CardDescription className="line-clamp-2">
-            {description}
-          </CardDescription>
-        </CardHeader>
-        {onJoin && (
-          <CardFooter className="mt-4">
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                onJoin()
-              }}
-              className={cn(
-                'w-full py-2 px-4 rounded-lg font-medium transition-colors',
-                isJoined
-                  ? 'bg-success-100 text-success-700 border border-success-200'
-                  : 'bg-primary-500 text-white hover:bg-primary-600'
-              )}
-              disabled={isJoined}
-            >
-              {isJoined ? 'Already Joined' : 'Join Group'}
-            </button>
-          </CardFooter>
-        )}
-      </div>
+      <CardHeader>
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
+            {category}
+          </span>
+          <span className="text-xs text-gray-500">
+            {memberCount} {memberCount === 1 ? 'member' : 'members'}
+          </span>
+        </div>
+        <CardTitle className="text-gray-900">{name}</CardTitle>
+        <CardDescription className="line-clamp-2 text-gray-600">
+          {description}
+        </CardDescription>
+      </CardHeader>
+      {onJoin && (
+        <CardFooter>
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              onJoin()
+            }}
+            className={cn(
+              'w-full py-2 px-4 font-medium rounded-md transition-fast',
+              isJoined
+                ? 'bg-success-50 text-success-700 border border-success-200'
+                : 'bg-primary-500 text-white hover:bg-primary-600'
+            )}
+            disabled={isJoined}
+          >
+            {isJoined ? 'Already Joined' : 'Join Group'}
+          </button>
+        </CardFooter>
+      )}
     </Card>
   )
 )

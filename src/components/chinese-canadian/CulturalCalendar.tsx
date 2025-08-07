@@ -28,7 +28,7 @@ const culturalEvents: CulturalEvent[] = [
     description: 'Celebrating new beginnings with traditional lion dance, red envelopes, and Christian blessings',
     descriptionZh: '舞獅、紅包與基督教祝福慶祝新的開始',
     icon: '🧧',
-    color: 'bg-gradient-spring-festival',
+    color: 'bg-error-100',
     significance: 'Family unity, renewal, and Gods blessings for the new year',
     significanceZh: '家庭團結、更新與上帝對新年的祝福'
   },
@@ -41,7 +41,7 @@ const culturalEvents: CulturalEvent[] = [
     description: 'Moon viewing, mooncakes, and thanksgiving prayers for family reunion',
     descriptionZh: '賞月、月餅與家庭團圓感恩禱告',
     icon: '🥮',
-    color: 'bg-gradient-mid-autumn',
+    color: 'bg-warning-100',
     significance: 'Gratitude for Gods provision and family fellowship',
     significanceZh: '感恩上帝的供應與家庭的團契'
   },
@@ -54,7 +54,7 @@ const culturalEvents: CulturalEvent[] = [
     description: 'Celebrating Canadian values with Chinese Canadian testimonies',
     descriptionZh: '以華裔加拿大人見證慶祝加拿大價值觀',
     icon: '🍁',
-    color: 'bg-gradient-cultural',
+    color: 'bg-primary-100',
     significance: 'Honoring our multicultural identity in Christ',
     significanceZh: '在基督裡榮耀我們的多元文化身分'
   },
@@ -67,7 +67,7 @@ const culturalEvents: CulturalEvent[] = [
     description: 'Christian memorial service honoring ancestors with hope in resurrection',
     descriptionZh: '以復活盼望紀念祖先的基督教追思禮拜',
     icon: '🕊️',
-    color: 'bg-gradient-heritage',
+    color: 'bg-success-100',
     significance: 'Remembering loved ones with eternal hope',
     significanceZh: '以永恆盼望紀念親人'
   },
@@ -80,7 +80,7 @@ const culturalEvents: CulturalEvent[] = [
     description: 'Community unity and perseverance through dragon boat racing and zongzi sharing',
     descriptionZh: '透過龍舟競賽與粽子分享展現社區團結與堅持',
     icon: '🐉',
-    color: 'bg-gradient-dragon-boat',
+    color: 'bg-gray-100',
     significance: 'Unity in diversity, perseverance in faith',
     significanceZh: '多樣性中的合一，信仰中的堅持'
   }
