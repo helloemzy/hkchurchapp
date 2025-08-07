@@ -5,21 +5,27 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-lg font-medium text-base transition-all duration-normal ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center rounded-lg font-medium text-base transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden',
   {
     variants: {
       variant: {
         primary:
-          'bg-primary-500 text-white hover:bg-primary-600 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0',
+          'bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:-translate-y-1 hover:scale-[1.02] hover:shadow-purple active:translate-y-0 active:scale-[0.98] shadow-md',
         secondary:
-          'border border-primary-500 bg-transparent text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/10',
+          'border-2 border-primary-500 bg-transparent text-primary-500 hover:bg-primary-50 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-md dark:hover:bg-primary-900/10',
         ghost:
-          'bg-transparent text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800',
+          'bg-transparent text-gray-700 hover:bg-gray-100 hover:-translate-y-0.5 hover:scale-[1.02] dark:text-gray-300 dark:hover:bg-gray-800',
         destructive:
-          'bg-error-500 text-white hover:bg-error-600 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0',
+          'bg-gradient-to-r from-red-500 to-red-600 text-white hover:-translate-y-1 hover:scale-[1.02] hover:shadow-red active:translate-y-0 active:scale-[0.98] shadow-md',
         outline:
-          'border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800',
-        link: 'text-primary-500 underline-offset-4 hover:underline',
+          'border border-gray-300 bg-white/80 text-gray-700 hover:bg-gray-50 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-md dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 backdrop-blur-sm',
+        link: 'text-primary-500 underline-offset-4 hover:underline hover:text-primary-600',
+        // New vibrant variants inspired by references
+        vibrant: 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white hover:-translate-y-1 hover:scale-[1.05] hover:shadow-xl shadow-lg font-bold',
+        cultural: 'bg-gradient-chinese-celebration text-white hover:-translate-y-1 hover:scale-[1.02] hover:shadow-chinese-red shadow-md font-bold',
+        jade: 'bg-gradient-jade-prosperity text-white hover:-translate-y-1 hover:scale-[1.02] hover:shadow-jade-green shadow-md font-bold',
+        festival: 'bg-gradient-festival-joy text-white hover:-translate-y-1 hover:scale-[1.02] hover:shadow-pink shadow-md font-bold',
+        organic: 'bg-gradient-organic-flow text-white hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl shadow-lg font-bold animate-gradient-shift',
       },
       size: {
         sm: 'h-9 px-4 text-sm',
@@ -53,6 +59,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, fullWidth, asChild = false, loading = false, leftIcon, rightIcon, children, disabled, ...props }, ref) => {
     const isDisabled = disabled || loading
     
+    const isVibrantVariant = variant && ['vibrant', 'cultural', 'jade', 'festival', 'organic'].includes(variant)
+    
     const content = (
       <>
         {loading && (
@@ -78,11 +86,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         )}
         {!loading && leftIcon && (
-          <span className="mr-2 flex-shrink-0">{leftIcon}</span>
+          <span className="mr-2 flex-shrink-0 relative z-10">{leftIcon}</span>
         )}
-        <span className={loading ? 'opacity-0' : ''}>{children}</span>
+        <span className={cn('relative z-10', loading ? 'opacity-0' : '')}>{children}</span>
         {!loading && rightIcon && (
-          <span className="ml-2 flex-shrink-0">{rightIcon}</span>
+          <span className="ml-2 flex-shrink-0 relative z-10">{rightIcon}</span>
+        )}
+        {/* Shimmer effect for vibrant buttons */}
+        {isVibrantVariant && !loading && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
         )}
       </>
     )
@@ -100,7 +112,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <button
-        className={cn(buttonVariants({ variant, size, fullWidth, className }))}
+        className={cn(buttonVariants({ variant, size, fullWidth, className }), 'group')}
         ref={ref}
         disabled={isDisabled}
         {...props}

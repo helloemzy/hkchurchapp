@@ -5,20 +5,26 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../../lib/utils'
 
 const cardVariants = cva(
-  'rounded-xl transition-all duration-300 ease-out',
+  'rounded-xl transition-all duration-300 ease-out relative overflow-hidden',
   {
     variants: {
       variant: {
-        default: 'bg-white dark:bg-gray-900 shadow-card hover:shadow-hover hover:-translate-y-1 border border-gray-100 dark:border-gray-800',
-        devotion: 'bg-gradient-devotion rounded-2xl shadow-card hover:shadow-hover hover:-translate-y-2 border border-devotion-dawn/30',
-        worship: 'bg-gradient-worship rounded-xl shadow-card hover:shadow-hover hover:-translate-y-2 border border-worship-rose/30',
-        event: 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-md hover:-translate-y-1',
-        group: 'bg-white dark:bg-gray-900 shadow-card hover:shadow-hover hover:-translate-y-1 overflow-hidden rounded-xl border border-gray-100 dark:border-gray-800',
-        prayer: 'bg-gradient-prayer border border-prayer-gold/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1',
-        scripture: 'bg-gradient-scripture border border-scripture-sage/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1',
-        gradient: 'bg-gradient-primary shadow-lg hover:shadow-xl hover:-translate-y-2',
-        elevated: 'bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700 rounded-2xl',
-        hero: 'bg-gradient-hero shadow-xl rounded-3xl border border-primary-200/30 hover:-translate-y-1',
+        default: 'bg-white dark:bg-gray-900 shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.02] border border-gray-100/50 dark:border-gray-800/50 backdrop-blur-sm',
+        devotion: 'bg-gradient-devotion rounded-2xl shadow-card hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-devotion-dawn/30 shimmer-effect',
+        worship: 'bg-gradient-worship rounded-xl shadow-card hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-worship-rose/30 shimmer-effect',
+        event: 'bg-white/80 dark:bg-gray-900/80 border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:shadow-lg hover:-translate-y-2 hover:scale-[1.01] backdrop-blur-md',
+        group: 'bg-white/90 dark:bg-gray-900/90 shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.01] overflow-hidden rounded-xl border border-gray-100/50 dark:border-gray-800/50 backdrop-blur-sm',
+        prayer: 'bg-gradient-prayer border border-prayer-gold/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        scripture: 'bg-gradient-scripture border border-scripture-sage/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        gradient: 'bg-gradient-primary shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] shimmer-effect',
+        elevated: 'bg-white/95 dark:bg-gray-800/95 shadow-xl border border-gray-100/50 dark:border-gray-700/50 rounded-2xl hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md',
+        hero: 'bg-gradient-hero shadow-xl rounded-3xl border border-primary-200/30 hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        // New vibrant variants inspired by references
+        vibrant: 'bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        cultural: 'bg-gradient-chinese-celebration text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
+        jade: 'bg-gradient-jade-prosperity text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        festival: 'bg-gradient-festival-joy text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
+        organic: 'bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 text-white shadow-lg hover:shadow-xl hover:-translate-y-4 hover:scale-[1.03] border-none animate-pulse-slow',
       },
       size: {
         sm: 'p-4',
@@ -141,28 +147,38 @@ const DevotionCard = React.forwardRef<HTMLDivElement, DevotionCardProps>(
       ref={ref}
       {...props}
     >
-      <CardHeader>
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></div>
-            <CardTitle className="text-primary-700 dark:text-primary-300 group-hover:text-primary-600 transition-colors">
+      {/* Floating gradient orbs inspired by reference 51438 */}
+      <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 animate-bounce" 
+           style={{ animationDuration: '6s' }} />
+      <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-15 group-hover:opacity-30 transition-all duration-700 animate-pulse" />
+      
+      <CardHeader className="relative z-10">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-ping opacity-30"></div>
+            </div>
+            <CardTitle className="text-purple-800 dark:text-purple-200 group-hover:text-purple-600 transition-colors font-bold text-lg">
               {title}
             </CardTitle>
           </div>
           {readTime && (
-            <span className="text-xs text-primary-600 dark:text-primary-400 bg-white/80 dark:bg-gray-800/80 px-2 py-1 rounded-full backdrop-blur-sm">
+            <span className="text-xs font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg group-hover:shadow-xl transition-all">
               {readTime}
             </span>
           )}
         </div>
-        <CardDescription className="text-primary-600 dark:text-primary-400 font-medium">
+        <CardDescription className="text-purple-600 dark:text-purple-300 font-semibold text-sm">
           {date}
         </CardDescription>
         {verse && (
-          <div className="mt-4 p-4 bg-white/60 dark:bg-gray-800/60 rounded-lg border border-white/40 backdrop-blur-sm">
-            <div className="flex items-start gap-2">
-              <div className="text-primary-500 text-xl mt-1">"</div>
-              <p className="text-sm font-medium text-primary-800 dark:text-primary-200 italic leading-relaxed">
+          <div className="mt-5 p-5 bg-white/70 dark:bg-gray-800/70 rounded-2xl border border-white/60 backdrop-blur-md shadow-inner relative overflow-hidden">
+            {/* Scripture decoration */}
+            <div className="absolute top-2 right-2 w-8 h-8 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20"></div>
+            <div className="flex items-start gap-3">
+              <div className="text-purple-500 text-3xl font-bold leading-none">"</div>
+              <p className="text-sm font-medium text-purple-800 dark:text-purple-200 italic leading-relaxed flex-1">
                 {verse}
               </p>
             </div>
@@ -170,20 +186,25 @@ const DevotionCard = React.forwardRef<HTMLDivElement, DevotionCardProps>(
         )}
       </CardHeader>
       {excerpt && (
-        <CardContent>
+        <CardContent className="relative z-10">
           <p className="text-sm text-gray-700 dark:text-gray-300 line-clamp-3 leading-relaxed">
             {excerpt}
           </p>
         </CardContent>
       )}
-      {/* Decorative gradient orb */}
-      <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-accent rounded-full opacity-20 group-hover:opacity-30 transition-opacity" />
-      {/* Progress indicator */}
-      <div className="absolute bottom-2 right-2 flex items-center gap-1">
-        <div className="w-1 h-1 bg-primary-400 rounded-full"></div>
-        <div className="w-1 h-1 bg-primary-300 rounded-full"></div>
-        <div className="w-1 h-1 bg-primary-200 rounded-full"></div>
+      
+      {/* Enhanced progress indicator inspired by reference 120690 */}
+      <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 rounded-full px-3 py-2 backdrop-blur-sm">
+        <div className="flex items-center gap-1">
+          <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full opacity-70"></div>
+          <div className="w-2 h-2 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full opacity-50"></div>
+        </div>
+        <span className="text-xs text-purple-600 font-medium">Continue</span>
       </div>
+      
+      {/* Shimmer effect overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
     </Card>
   )
 )
@@ -205,28 +226,36 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
   ({ title, date, time, location, category, attendees, maxAttendees, onJoin, onShare, className, ...props }, ref) => {
     const categoryConfig = {
       worship: { 
-        bg: 'bg-primary-100 dark:bg-primary-900/30', 
-        text: 'text-primary-800 dark:text-primary-200', 
-        border: 'border-primary-200 dark:border-primary-700',
-        icon: '🙏'
+        bg: 'bg-gradient-to-r from-purple-500 to-violet-600', 
+        text: 'text-white font-semibold', 
+        border: 'border-purple-300/50',
+        icon: '🙏',
+        cardBg: 'bg-gradient-to-br from-purple-50 via-violet-50 to-purple-100',
+        shadow: 'shadow-purple'
       },
       fellowship: { 
-        bg: 'bg-success-100 dark:bg-success-900/30', 
-        text: 'text-success-800 dark:text-success-200', 
-        border: 'border-success-200 dark:border-success-700',
-        icon: '🤝'
+        bg: 'bg-gradient-to-r from-emerald-500 to-green-600', 
+        text: 'text-white font-semibold', 
+        border: 'border-emerald-300/50',
+        icon: '🤝',
+        cardBg: 'bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100',
+        shadow: 'shadow-green'
       },
       study: { 
-        bg: 'bg-warning-100 dark:bg-warning-900/30', 
-        text: 'text-warning-800 dark:text-warning-200', 
-        border: 'border-warning-200 dark:border-warning-700',
-        icon: '📖'
+        bg: 'bg-gradient-to-r from-orange-500 to-amber-600', 
+        text: 'text-white font-semibold', 
+        border: 'border-orange-300/50',
+        icon: '📖',
+        cardBg: 'bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100',
+        shadow: 'shadow-orange'
       },
       service: { 
-        bg: 'bg-info-100 dark:bg-info-900/30', 
-        text: 'text-info-800 dark:text-info-200', 
-        border: 'border-info-200 dark:border-info-700',
-        icon: '❤️'
+        bg: 'bg-gradient-to-r from-blue-500 to-indigo-600', 
+        text: 'text-white font-semibold', 
+        border: 'border-blue-300/50',
+        icon: '❤️',
+        cardBg: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100',
+        shadow: 'shadow-blue'
       },
     }
 
@@ -238,40 +267,57 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
       <Card
         variant="event"
         interactive={!!onJoin}
-        className={cn('group relative', className)}
+        className={cn('group relative overflow-hidden', config.cardBg, className)}
+        style={{ 
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.1)', 
+        }}
         ref={ref}
         {...props}
       >
-        <CardHeader>
+        {/* Vibrant background decoration inspired by reference 29377 */}
+        <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+          <div className={cn(
+            'w-full h-full rounded-full transform translate-x-8 -translate-y-8',
+            config.bg
+          )}></div>
+        </div>
+        
+        <CardHeader className="relative z-10">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-4">
                 <div className={cn(
-                  'flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border backdrop-blur-sm',
+                  'flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-2xl border-none shadow-lg backdrop-blur-sm transform group-hover:scale-105 transition-all',
                   config.bg,
-                  config.text,
-                  config.border
+                  config.text
                 )}>
-                  <span>{config.icon}</span>
+                  <span className="text-lg">{config.icon}</span>
                   <span>{category.charAt(0).toUpperCase() + category.slice(1)}</span>
                 </div>
                 {attendees !== undefined && maxAttendees && (
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     <div className={cn(
-                      'px-2 py-1 text-xs rounded-full',
-                      isNearlyFull ? 'bg-warning-100 text-warning-700' : 'bg-gray-100 text-gray-600'
+                      'px-3 py-1.5 text-xs font-bold rounded-full shadow-md backdrop-blur-sm',
+                      isNearlyFull ? 'bg-gradient-to-r from-red-400 to-pink-500 text-white' : 'bg-white/90 text-gray-700'
                     )}>
                       {attendees}/{maxAttendees}
                     </div>
-                    {/* Visual attendance indicator */}
-                    <div className="w-16 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                      <div 
-                        className={cn(
-                          'h-full transition-all duration-500',
-                          isNearlyFull ? 'bg-warning-400' : 'bg-success-400'
-                        )}
-                        style={{ width: `${Math.min(attendancePercentage * 100, 100)}%` }}
-                      />
+                    {/* Enhanced visual attendance indicator */}
+                    <div className="flex flex-col gap-1">
+                      <div className="w-20 h-2 bg-white/50 rounded-full overflow-hidden shadow-inner">
+                        <div 
+                          className={cn(
+                            'h-full transition-all duration-700 rounded-full',
+                            isNearlyFull 
+                              ? 'bg-gradient-to-r from-red-400 to-pink-500' 
+                              : 'bg-gradient-to-r from-green-400 to-emerald-500'
+                          )}
+                          style={{ width: `${Math.min(attendancePercentage * 100, 100)}%` }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600 font-medium">
+                        {Math.round(attendancePercentage * 100)}% full
+                      </span>
                     </div>
                   </div>
                 )}
@@ -314,12 +360,21 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
           </div>
         </CardHeader>
         {onJoin && (
-          <CardFooter>
+          <CardFooter className="pt-4">
             <button
               onClick={onJoin}
-              className="w-full bg-primary-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-600 transition-colors"
+              className={cn(
+                'w-full py-3 px-6 rounded-2xl font-bold text-white shadow-lg transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden',
+                config.bg,
+                'hover:shadow-xl active:scale-[0.98]'
+              )}
             >
-              Join Event
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <span>Join Event</span>
+                <span className="text-lg">✨</span>
+              </span>
+              {/* Button shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700"></div>
             </button>
           </CardFooter>
         )}

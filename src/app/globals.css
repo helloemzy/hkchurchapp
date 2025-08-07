@@ -7,7 +7,7 @@
   --primary-purple-dark: #6D28D9;
   --primary-purple-light: #A855F7;
   
-  /* Enhanced Gradient System */
+  /* Enhanced Vibrant Gradient System - Inspired by Reference Designs */
   --gradient-primary: linear-gradient(135deg, #f8f7ff 0%, #e4dcff 50%, #d1c4ff 100%);
   --gradient-devotion: linear-gradient(135deg, #fef7e0 0%, #f3efff 50%, #fff8e1 100%);
   --gradient-worship: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%);
@@ -15,6 +15,24 @@
   --gradient-scripture: linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%);
   --gradient-accent: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
   --gradient-hero: linear-gradient(135deg, #f8f7ff 0%, #fef7e0 30%, #f0f9ff 70%, #f3efff 100%);
+  
+  /* Vibrant Card Gradients - Reference 51438 Inspired */
+  --gradient-vibrant-purple: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C084FC 100%);
+  --gradient-vibrant-blue: linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%);
+  --gradient-vibrant-green: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
+  --gradient-vibrant-orange: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%);
+  --gradient-vibrant-pink: linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%);
+  --gradient-vibrant-red: linear-gradient(135deg, #EF4444 0%, #F87171 50%, #FCA5A5 100%);
+  
+  /* Organic Flow Gradients - Reference 51438 Style */
+  --gradient-organic-flow: linear-gradient(135deg, #A855F7 0%, #EC4899 25%, #F59E0B 50%, #10B981 75%, #3B82F6 100%);
+  --gradient-soft-wave: linear-gradient(135deg, #E0E7FF 0%, #F3E8FF 25%, #FEF3E2 50%, #F0FDF4 75%, #EFF6FF 100%);
+  
+  /* Cultural Heritage Vibrant Gradients */
+  --gradient-chinese-celebration: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #EAB308 100%);
+  --gradient-jade-prosperity: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+  --gradient-festival-joy: linear-gradient(135deg, #EC4899 0%, #F59E0B 50%, #DC2626 100%);
+  --gradient-wisdom-bridge: linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%);
   
   /* Spiritual Theme Colors */
   --devotion-dawn: #fef7e0;
@@ -135,13 +153,30 @@
   --radius-2xl: 1.25rem; /* 20px */
   --radius-full: 9999px;
   
-  /* Shadow System */
+  /* Enhanced Vibrant Shadow System */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+  
+  /* Vibrant Colored Shadows - Reference 29377 Inspired */
+  --shadow-purple: 0 8px 25px rgba(124, 58, 237, 0.25);
+  --shadow-blue: 0 8px 25px rgba(59, 130, 246, 0.25);
+  --shadow-green: 0 8px 25px rgba(16, 185, 129, 0.25);
+  --shadow-orange: 0 8px 25px rgba(245, 158, 11, 0.25);
+  --shadow-pink: 0 8px 25px rgba(236, 72, 153, 0.25);
+  --shadow-red: 0 8px 25px rgba(239, 68, 68, 0.25);
+  
+  /* Glowing Effects */
+  --shadow-glow-purple: 0 0 20px rgba(124, 58, 237, 0.4);
+  --shadow-glow-soft: 0 0 30px rgba(124, 58, 237, 0.2);
+  
+  /* Cultural Shadow Effects */
+  --shadow-chinese-red: 0 8px 25px rgba(220, 38, 38, 0.3);
+  --shadow-jade-green: 0 8px 25px rgba(5, 150, 105, 0.3);
+  --shadow-gold: 0 8px 25px rgba(245, 158, 11, 0.3);
   
   /* Animation & Transitions */
   --duration-fast: 150ms;
@@ -302,7 +337,7 @@ body {
   animation-delay: calc(var(--stagger-delay, 0) * 50ms);
 }
 
-/* Spiritual Animation Keyframes */
+/* Enhanced Vibrant Animation Keyframes */
 @keyframes gentlePulse {
   0%, 100% { 
     opacity: 1; 
@@ -332,7 +367,62 @@ body {
   }
 }
 
-/* Spiritual Component Classes */
+/* Vibrant Interactive Animations */
+@keyframes vibrantGlow {
+  0%, 100% { 
+    box-shadow: var(--shadow-card), 0 0 0 rgba(124, 58, 237, 0); 
+  }
+  50% { 
+    box-shadow: var(--shadow-hover), 0 0 30px rgba(124, 58, 237, 0.3); 
+  }
+}
+
+@keyframes colorfulPulse {
+  0% { 
+    background-position: 0% 50%; 
+    transform: scale(1);
+  }
+  50% { 
+    background-position: 100% 50%; 
+    transform: scale(1.02);
+  }
+  100% { 
+    background-position: 0% 50%; 
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatingOrb {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.7;
+  }
+  33% { 
+    transform: translateY(-10px) rotate(120deg); 
+    opacity: 0.9;
+  }
+  66% { 
+    transform: translateY(-5px) rotate(240deg); 
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced Vibrant Component Classes */
 .devotion-card {
   background: var(--gradient-devotion);
   border-radius: 1.5rem;
@@ -340,22 +430,26 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: all var(--duration-normal) var(--ease-in-out);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .devotion-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-purple);
+  animation: vibrantGlow 2s ease-in-out infinite;
 }
 
 .devotion-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 4rem;
-  height: 4rem;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-vibrant-purple);
   border-radius: 50%;
+  opacity: 0.3;
+  animation: floatingOrb 6s ease-in-out infinite;
 }
 
 .prayer-card {
@@ -363,6 +457,12 @@ body {
   border-radius: 1rem;
   border: 1px solid rgba(255, 248, 225, 0.8);
   position: relative;
+  overflow: hidden;
+}
+
+.prayer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
 }
 
 .prayer-card::after {
@@ -370,11 +470,89 @@ body {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  width: 8px;
+  height: 8px;
+  background: var(--gradient-vibrant-orange);
   border-radius: 50%;
   animation: gentlePulse 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Vibrant Card Variants */
+.card-vibrant-purple {
+  background: var(--gradient-vibrant-purple);
+  color: white;
+  box-shadow: var(--shadow-purple);
+  border: none;
+}
+
+.card-vibrant-purple:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-purple), var(--shadow-glow-purple);
+}
+
+.card-vibrant-blue {
+  background: var(--gradient-vibrant-blue);
+  color: white;
+  box-shadow: var(--shadow-blue);
+  border: none;
+}
+
+.card-vibrant-green {
+  background: var(--gradient-vibrant-green);
+  color: white;
+  box-shadow: var(--shadow-green);
+  border: none;
+}
+
+.card-vibrant-orange {
+  background: var(--gradient-vibrant-orange);
+  color: white;
+  box-shadow: var(--shadow-orange);
+  border: none;
+}
+
+.card-cultural-celebration {
+  background: var(--gradient-chinese-celebration);
+  color: white;
+  box-shadow: var(--shadow-chinese-red);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-cultural-celebration::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-jade-prosperity);
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+/* Shimmer Effect for Interactive Elements */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.shimmer-effect:hover::before {
+  left: 100%;
 }
 
 .scripture-text {

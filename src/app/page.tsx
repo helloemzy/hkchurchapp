@@ -125,79 +125,148 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeView === 'home' && (
           <div className="space-y-8">
-            {/* Hero Section */}
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-chinese-gold/20 rounded-full text-chinese-red text-sm font-medium mb-4">
-                <div className="w-2 h-2 bg-chinese-jade rounded-full animate-pulse"></div>
-                Cultural Bridge Ready 🇨🇦🇨🇳
+            {/* Enhanced Hero Section with Vibrant Design */}
+            <div className="text-center mb-16 relative">
+              {/* Background decorative elements */}
+              <div className="absolute -top-10 left-1/4 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-20 animate-gentle-float" style={{ animationDelay: '0s' }}></div>
+              <div className="absolute -top-5 right-1/3 w-24 h-24 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full opacity-25 animate-gentle-float" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-16 left-1/6 w-20 h-20 bg-gradient-to-br from-orange-200 to-yellow-200 rounded-full opacity-15 animate-gentle-float" style={{ animationDelay: '4s' }}></div>
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 rounded-full text-white text-sm font-bold mb-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-white/80 rounded-full animate-ping"></div>
+                  </div>
+                  <span className="flex items-center gap-2">
+                    Cultural Bridge Ready 
+                    <span className="text-lg">🇨🇦🇨🇳</span>
+                  </span>
+                </div>
+                
+                <h2 className="text-5xl md:text-7xl font-display font-bold mb-6 animate-fade-in-up">
+                  <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+                    Where Heritage Meets Faith
+                  </span>
+                  <span className="block text-3xl md:text-4xl mt-2 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent chinese-text font-bold">
+                    傳統與信仰的橋樑
+                  </span>
+                </h2>
+                
+                <div className="max-w-4xl mx-auto mb-8">
+                  <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-4 font-medium">
+                    Serving the Chinese Canadian community in Coquitlam
+                  </p>
+                  <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                    Bridging generations through faith, culture, and digital innovation
+                  </p>
+                  <p className="text-lg text-gray-500 dark:text-gray-400 chinese-text font-medium">
+                    服務高貴林華裔加拿大社區 - 透過信仰、文化與數字創新連接世代
+                  </p>
+                </div>
+                
+                {/* Call-to-action buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Button 
+                    variant="vibrant" 
+                    size="lg"
+                    className="shadow-xl hover:shadow-2xl"
+                    onClick={() => setActiveView('devotion')}
+                  >
+                    <span className="flex items-center gap-2">
+                      Start Your Journey
+                      <span className="text-xl">✨</span>
+                    </span>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    onClick={() => setActiveView('cultural-calendar')}
+                  >
+                    <span className="flex items-center gap-2">
+                      Explore Culture
+                      <span className="text-xl">🏮</span>
+                    </span>
+                  </Button>
+                </div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-gray-100 mb-4">
-                Where Heritage Meets Faith
-                <span className="bg-gradient-accent bg-clip-text text-transparent block"> 傳統與信仰的橋樑</span>
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-2">
-                Serving the Chinese Canadian community in Coquitlam - bridging generations through faith, culture, and digital innovation.
-              </p>
-              <p className="text-base text-gray-500 dark:text-gray-400 chinese-text">
-                服務高貴林華裔加拿大社區 - 透過信仰、文化與數字創新連接世代。
-              </p>
             </div>
 
-            {/* Cultural Heritage Quick Access Cards */}
+            {/* Enhanced Cultural Heritage Quick Access Cards with Vibrant Design */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <Card 
-                variant="gradient" 
-                className="p-6 group cursor-pointer bg-gradient-elder-wisdom border border-chinese-gold/30"
+                variant="vibrant" 
+                className="p-8 group cursor-pointer relative overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: '0ms' }}
                 onClick={() => setActiveView('devotion')}
               >
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-chinese-gold/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">📖</span>
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full opacity-20 group-hover:opacity-40 animate-gentle-float"></div>
+                <div className="text-center relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
+                    <span className="text-3xl filter drop-shadow-sm">📖</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Family Devotions</h3>
-                  <p className="text-sm text-gray-600 chinese-text">家庭靈修 - 三代同堂</p>
+                  <h3 className="font-bold text-white mb-2 text-lg">Family Devotions</h3>
+                  <p className="text-white/90 text-sm font-medium chinese-text">家庭靈修 - 三代同堂</p>
+                  <div className="mt-3 w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full w-3/4 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full group-hover:w-full transition-all duration-700"></div>
+                  </div>
                 </div>
               </Card>
 
               <Card 
-                variant="worship" 
-                className="p-6 group cursor-pointer bg-gradient-cultural border border-chinese-jade/30"
+                variant="jade" 
+                className="p-8 group cursor-pointer relative overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: '100ms' }}
                 onClick={() => setActiveView('bible')}
               >
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-chinese-jade/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">📚</span>
+                <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-blue-300 to-green-400 rounded-full opacity-15 group-hover:opacity-30 animate-floating-orb"></div>
+                <div className="text-center relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 shadow-lg">
+                    <span className="text-3xl filter drop-shadow-sm">📚</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Bilingual Bible</h3>
-                  <p className="text-sm text-gray-600 chinese-text">雙語聖經 - 中英對照</p>
+                  <h3 className="font-bold text-white mb-2 text-lg">Bilingual Bible</h3>
+                  <p className="text-white/90 text-sm font-medium chinese-text">雙語聖經 - 中英對照</p>
+                  <div className="mt-3 w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full w-2/3 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full group-hover:w-full transition-all duration-700"></div>
+                  </div>
                 </div>
               </Card>
 
               <Card 
-                variant="prayer" 
-                className="p-6 group cursor-pointer bg-gradient-celebration border border-festival-lantern/30"
+                variant="festival" 
+                className="p-8 group cursor-pointer relative overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: '200ms' }}
                 onClick={() => setActiveView('cultural-calendar')}
               >
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-festival-lantern/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">🏮</span>
+                <div className="absolute -top-6 -left-6 w-14 h-14 bg-gradient-to-br from-pink-300 to-yellow-400 rounded-full opacity-25 group-hover:opacity-45 animate-pulse"></div>
+                <div className="text-center relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                    <span className="text-3xl filter drop-shadow-sm">🏮</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Cultural Calendar</h3>
-                  <p className="text-sm text-gray-600 chinese-text">文化日曆 - 春節中秋</p>
+                  <h3 className="font-bold text-white mb-2 text-lg">Cultural Calendar</h3>
+                  <p className="text-white/90 text-sm font-medium chinese-text">文化日曆 - 春節中秋</p>
+                  <div className="mt-3 w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full w-4/5 bg-gradient-to-r from-pink-300 to-rose-300 rounded-full group-hover:w-full transition-all duration-700"></div>
+                  </div>
                 </div>
               </Card>
 
               <Card 
-                variant="scripture" 
-                className="p-6 group cursor-pointer bg-gradient-youth-energy border border-youth-connection/30"
+                variant="cultural" 
+                className="p-8 group cursor-pointer relative overflow-hidden animate-fade-in-up"
+                style={{ animationDelay: '300ms' }}
                 onClick={() => setActiveView('generation-bridge')}
               >
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-youth-connection/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">🤝</span>
+                <div className="absolute top-1/2 right-0 w-24 h-24 bg-gradient-to-br from-blue-300 to-purple-400 rounded-full opacity-10 group-hover:opacity-25 transform translate-x-8 animate-gradient-shift"></div>
+                <div className="text-center relative z-10">
+                  <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-2 transition-all duration-500 shadow-lg">
+                    <span className="text-3xl filter drop-shadow-sm">🤝</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Generation Bridge</h3>
-                  <p className="text-sm text-gray-600 chinese-text">世代橋樑 - 青年長者</p>
+                  <h3 className="font-bold text-white mb-2 text-lg">Generation Bridge</h3>
+                  <p className="text-white/90 text-sm font-medium chinese-text">世代橋樑 - 青年長者</p>
+                  <div className="mt-3 w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full w-5/6 bg-gradient-to-r from-amber-300 to-orange-300 rounded-full group-hover:w-full transition-all duration-700"></div>
+                  </div>
                 </div>
               </Card>
             </div>

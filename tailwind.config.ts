@@ -207,14 +207,34 @@ const config: Config = {
         'full': '9999px',
       },
       
-      // Box shadow
+      // Enhanced Box Shadow System with Vibrant Colors
       boxShadow: {
         'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
         'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
         'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
+        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         'card': '0 4px 15px rgba(0, 0, 0, 0.1)',
         'hover': '0 10px 30px rgba(0, 0, 0, 0.15)',
+        
+        // Vibrant Colored Shadows - Reference 29377 Inspired
+        'purple': '0 8px 25px rgba(124, 58, 237, 0.25)',
+        'blue': '0 8px 25px rgba(59, 130, 246, 0.25)',
+        'green': '0 8px 25px rgba(16, 185, 129, 0.25)',
+        'orange': '0 8px 25px rgba(245, 158, 11, 0.25)',
+        'pink': '0 8px 25px rgba(236, 72, 153, 0.25)',
+        'red': '0 8px 25px rgba(239, 68, 68, 0.25)',
+        
+        // Glowing Effects
+        'glow-purple': '0 0 20px rgba(124, 58, 237, 0.4)',
+        'glow-blue': '0 0 20px rgba(59, 130, 246, 0.4)',
+        'glow-green': '0 0 20px rgba(16, 185, 129, 0.4)',
+        'glow-soft': '0 0 30px rgba(124, 58, 237, 0.2)',
+        
+        // Cultural Shadow Effects
+        'chinese-red': '0 8px 25px rgba(220, 38, 38, 0.3)',
+        'jade-green': '0 8px 25px rgba(5, 150, 105, 0.3)',
+        'gold': '0 8px 25px rgba(245, 158, 11, 0.3)',
       },
       
       // Animation & Transitions
@@ -231,7 +251,7 @@ const config: Config = {
         'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       
-      // Enhanced Chinese Canadian Cultural Gradients
+      // Enhanced Chinese Canadian Cultural Gradients + Vibrant UX Patterns
       backgroundImage: {
         // Heritage Fusion Gradients
         'gradient-heritage': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 70%, #f3efff 100%)',
@@ -258,6 +278,29 @@ const config: Config = {
         'gradient-accent': 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
         'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 50%, #f0fff0 80%, #f3efff 100%)',
         'gradient-dark': 'linear-gradient(135deg, #27272a 0%, #2a2a2e 50%, #3f3f46 100%)',
+        
+        // NEW: Vibrant Reference-Inspired Gradients
+        'gradient-vibrant-purple': 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C084FC 100%)',
+        'gradient-vibrant-blue': 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%)',
+        'gradient-vibrant-green': 'linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%)',
+        'gradient-vibrant-orange': 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%)',
+        'gradient-vibrant-pink': 'linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%)',
+        'gradient-vibrant-red': 'linear-gradient(135deg, #EF4444 0%, #F87171 50%, #FCA5A5 100%)',
+        
+        // Organic Flow Gradients (Reference 51438 Style)
+        'gradient-organic-flow': 'linear-gradient(135deg, #A855F7 0%, #EC4899 25%, #F59E0B 50%, #10B981 75%, #3B82F6 100%)',
+        'gradient-soft-wave': 'linear-gradient(135deg, #E0E7FF 0%, #F3E8FF 25%, #FEF3E2 50%, #F0FDF4 75%, #EFF6FF 100%)',
+        
+        // Cultural Heritage Vibrant Gradients
+        'gradient-chinese-celebration': 'linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #EAB308 100%)',
+        'gradient-jade-prosperity': 'linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%)',
+        'gradient-festival-joy': 'linear-gradient(135deg, #EC4899 0%, #F59E0B 50%, #DC2626 100%)',
+        'gradient-wisdom-bridge': 'linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%)',
+        
+        // Interactive Shimmer Effects
+        'shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
+        'shimmer-gold': 'linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent)',
+        'shimmer-purple': 'linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)',
       },
       
       // Container widths
@@ -280,7 +323,7 @@ const config: Config = {
         '2xl': '1536px',
       },
       
-      // Animation keyframes
+      // Enhanced Animation Keyframes
       keyframes: {
         fadeInUp: {
           '0%': {
@@ -300,11 +343,85 @@ const config: Config = {
             backgroundPosition: '200% 0',
           },
         },
+        // Vibrant Interactive Animations
+        vibrantGlow: {
+          '0%, 100%': { 
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1), 0 0 0 rgba(124, 58, 237, 0)' 
+          },
+          '50%': { 
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15), 0 0 30px rgba(124, 58, 237, 0.3)' 
+          },
+        },
+        colorfulPulse: {
+          '0%': { 
+            backgroundPosition: '0% 50%',
+            transform: 'scale(1)',
+          },
+          '50%': { 
+            backgroundPosition: '100% 50%',
+            transform: 'scale(1.02)',
+          },
+          '100%': { 
+            backgroundPosition: '0% 50%',
+            transform: 'scale(1)',
+          },
+        },
+        gradientShift: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        floatingOrb: {
+          '0%, 100%': { 
+            transform: 'translateY(0px) rotate(0deg)',
+            opacity: '0.7',
+          },
+          '33%': { 
+            transform: 'translateY(-10px) rotate(120deg)',
+            opacity: '0.9',
+          },
+          '66%': { 
+            transform: 'translateY(-5px) rotate(240deg)',
+            opacity: '0.8',
+          },
+        },
+        gentleFloat: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-4px)' },
+        },
+        slideInRight: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(20px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        scaleIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.9)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
       },
       
       animation: {
         'fade-in-up': 'fadeInUp 250ms ease-out',
         'shimmer': 'shimmer 2s infinite',
+        'vibrant-glow': 'vibrantGlow 2s ease-in-out infinite',
+        'colorful-pulse': 'colorfulPulse 4s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+        'floating-orb': 'floatingOrb 6s ease-in-out infinite',
+        'gentle-float': 'gentleFloat 3s ease-in-out infinite',
+        'slide-in-right': 'slideInRight 300ms ease-out',
+        'scale-in': 'scaleIn 200ms ease-out',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
