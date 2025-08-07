@@ -9,7 +9,7 @@ const config: Config = {
   darkMode: ['class', '[data-theme="dark-disabled"]'], // Dark mode disabled for warm church experience
   theme: {
     extend: {
-      // Enhanced Hong Kong Church Color Palette
+      // Chinese Canadian Cultural Color Palette - Where Heritage Meets Faith
       colors: {
         primary: {
           25: '#f8f7ff',
@@ -18,12 +18,45 @@ const config: Config = {
           200: '#d1c4ff',
           300: '#b8a3ff',
           400: '#A855F7',
-          500: '#7C3AED', // Exact brand purple required
+          500: '#7C3AED', // Faith purple - continuity with existing
           600: '#6D28D9',
           700: '#5B21B6',
           800: '#4C1D95',
           900: '#3B1F7A',
           950: '#1a0f35',
+        },
+        // Chinese Canadian Cultural Heritage Colors
+        chinese: {
+          red: '#C8102E',      // 中国红 - Celebrations, Blessings, Joy
+          gold: '#FFD700',     // 金色 - Prosperity, Success, Honor
+          jade: '#00A86B',     // 玉绿 - Harmony, Peace, Growth
+          crimson: '#DC143C',  // 深红 - Deep devotion, Love
+          amber: '#FFBF00',    // 琥珀 - Wisdom, Warmth
+          emerald: '#50C878',  // 翡翠 - New life, Hope
+        },
+        // Canadian Heritage Colors
+        canadian: {
+          red: '#FF0000',      // Canadian red - National identity
+          white: '#FFFFFF',    // Purity, Peace
+          maple: '#8B4513',    // Maple brown - Grounding, Stability
+        },
+        // Generational Bridge Colors
+        elder: {
+          wisdom: '#8B4513',   // Deep brown - Wisdom, Experience
+          respect: '#DAA520',  // Golden rod - Honor, Reverence
+          peace: '#708090',    // Slate gray - Tranquility
+        },
+        youth: {
+          energy: '#FF6347',   // Tomato - Vitality, Passion
+          innovation: '#4169E1', // Royal blue - Technology, Future
+          connection: '#32CD32', // Lime green - Community, Growth
+        },
+        // Cultural Festival Colors
+        festival: {
+          spring: '#FF69B4',   // Hot pink - Spring Festival energy
+          autumn: '#FF8C00',   // Dark orange - Mid-Autumn warmth
+          dragon: '#B22222',   // Fire brick - Dragon Boat strength
+          lantern: '#FFD700',  // Gold - Lantern Festival light
         },
         // Enhanced semantic colors
         success: {
@@ -198,15 +231,32 @@ const config: Config = {
         'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       
-      // Enhanced background gradients
+      // Enhanced Chinese Canadian Cultural Gradients
       backgroundImage: {
+        // Heritage Fusion Gradients
+        'gradient-heritage': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 70%, #f3efff 100%)',
+        'gradient-cultural': 'linear-gradient(135deg, #fef7e0 0%, #f3efff 30%, #fff0f0 70%, #f0f8f4 100%)',
+        'gradient-celebration': 'linear-gradient(135deg, #fff5f5 0%, #fff8e1 50%, #f0fff0 100%)',
+        
+        // Generational Bridge Gradients
+        'gradient-elder-wisdom': 'linear-gradient(135deg, #faf5e4 0%, #f5f3f0 100%)',
+        'gradient-youth-energy': 'linear-gradient(135deg, #f0f8ff 0%, #f0fff0 50%, #fff8f0 100%)',
+        'gradient-family-unity': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 25%, #f0f9ff 50%, #f0fff0 75%, #fff0f0 100%)',
+        
+        // Festival Themed Gradients
+        'gradient-spring-festival': 'linear-gradient(135deg, #fff0f0 0%, #fff8e1 50%, #ff69b420 100%)',
+        'gradient-mid-autumn': 'linear-gradient(135deg, #fff8e1 0%, #ffa50020 50%, #8b451320 100%)',
+        'gradient-dragon-boat': 'linear-gradient(135deg, #f0f8ff 0%, #b2222220 50%, #00a86b20 100%)',
+        'gradient-lantern': 'linear-gradient(135deg, #fff8e1 0%, #ffd70020 100%)',
+        
+        // Original gradients maintained for compatibility
         'gradient-primary': 'linear-gradient(135deg, #f8f7ff 0%, #e4dcff 50%, #d1c4ff 100%)',
         'gradient-devotion': 'linear-gradient(135deg, #fef7e0 0%, #f3efff 50%, #fff8e1 100%)',
         'gradient-worship': 'linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%)',
         'gradient-prayer': 'linear-gradient(135deg, #fff8e1 0%, #f3efff 100%)',
         'gradient-scripture': 'linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%)',
         'gradient-accent': 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fef7e0 30%, #f0f9ff 70%, #f3efff 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 50%, #f0fff0 80%, #f3efff 100%)',
         'gradient-dark': 'linear-gradient(135deg, #27272a 0%, #2a2a2e 50%, #3f3f46 100%)',
       },
       

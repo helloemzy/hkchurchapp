@@ -7,8 +7,12 @@ import { MobileNavigationBar, createChurchNavigation } from '../components/navig
 import { DevotionReader } from '../components/devotions/DevotionReader';
 import { BibleReader } from '../components/bible/BibleReader';
 import { PrayerRequests } from '../components/prayer/PrayerRequests';
+import WeChatStyleFAB from '../components/chinese-canadian/WeChatStyleFAB';
+import CulturalCalendar from '../components/chinese-canadian/CulturalCalendar';
+import GenerationBridge from '../components/chinese-canadian/GenerationBridge';
+import ElderFriendlyMode from '../components/chinese-canadian/ElderFriendlyMode';
 
-type ActiveView = 'devotion' | 'bible' | 'prayer' | 'events' | 'home';
+type ActiveView = 'devotion' | 'bible' | 'prayer' | 'events' | 'home' | 'cultural-calendar' | 'generation-bridge';
 
 export default function Home() {
   const [activeView, setActiveView] = useState<ActiveView>('home');
@@ -53,7 +57,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen bg-gradient-heritage">
       {/* Navigation Header */}
       <div className="sticky top-0 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,9 +68,9 @@ export default function Home() {
               </div>
               <div>
                 <h1 className="text-lg font-display font-bold text-gray-900 dark:text-gray-100">
-                  Hong Kong Church
+                  中加教會 Coquitlam
                 </h1>
-                <p className="text-xs text-gray-600 dark:text-gray-400 chinese-text">香港教會</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 chinese-text">Chinese Canadian Church</p>
               </div>
             </div>
 
@@ -97,7 +101,14 @@ export default function Home() {
                 size="sm"
                 onClick={() => setActiveView('events')}
               >
-                📅 Events
+                🏮 Cultural
+              </Button>
+              <Button
+                variant={activeView === 'generation-bridge' ? 'primary' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveView('generation-bridge')}
+              >
+                🤝 Generations
               </Button>
               <Button
                 variant={activeView === 'prayer' ? 'primary' : 'ghost'}
@@ -116,77 +127,77 @@ export default function Home() {
           <div className="space-y-8">
             {/* Hero Section */}
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 dark:bg-primary-900/30 rounded-full text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
-                <div className="w-2 h-2 bg-success-500 rounded-full animate-pulse"></div>
-                Production Ready
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-chinese-gold/20 rounded-full text-chinese-red text-sm font-medium mb-4">
+                <div className="w-2 h-2 bg-chinese-jade rounded-full animate-pulse"></div>
+                Cultural Bridge Ready 🇨🇦🇨🇳
               </div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-gray-100 mb-4">
-                Welcome to Our
-                <span className="bg-gradient-accent bg-clip-text text-transparent"> Digital Church</span>
+                Where Heritage Meets Faith
+                <span className="bg-gradient-accent bg-clip-text text-transparent block"> 傳統與信仰的橋樑</span>
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed mb-2">
-                Connect with our Hong Kong Christian community through daily devotions, prayer sharing, and fellowship events.
+                Serving the Chinese Canadian community in Coquitlam - bridging generations through faith, culture, and digital innovation.
               </p>
               <p className="text-base text-gray-500 dark:text-gray-400 chinese-text">
-                與香港基督教社區連結，透過每日靈修、禱告分享和團契活動。
+                服務高貴林華裔加拿大社區 - 透過信仰、文化與數字創新連接世代。
               </p>
             </div>
 
-            {/* Quick Access Cards */}
+            {/* Cultural Heritage Quick Access Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <Card 
                 variant="gradient" 
-                className="p-6 group cursor-pointer"
+                className="p-6 group cursor-pointer bg-gradient-elder-wisdom border border-chinese-gold/30"
                 onClick={() => setActiveView('devotion')}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-chinese-gold/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                     <span className="text-2xl">📖</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Daily Devotions</h3>
-                  <p className="text-sm text-gray-600 chinese-text">每日靈修</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Family Devotions</h3>
+                  <p className="text-sm text-gray-600 chinese-text">家庭靈修 - 三代同堂</p>
                 </div>
               </Card>
 
               <Card 
                 variant="worship" 
-                className="p-6 group cursor-pointer"
+                className="p-6 group cursor-pointer bg-gradient-cultural border border-chinese-jade/30"
                 onClick={() => setActiveView('bible')}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">📜</span>
+                  <div className="w-12 h-12 bg-chinese-jade/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                    <span className="text-2xl">📚</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Bible Study</h3>
-                  <p className="text-sm text-gray-600 chinese-text">聖經研讀</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Bilingual Bible</h3>
+                  <p className="text-sm text-gray-600 chinese-text">雙語聖經 - 中英對照</p>
                 </div>
               </Card>
 
               <Card 
                 variant="prayer" 
-                className="p-6 group cursor-pointer"
-                onClick={() => setActiveView('events')}
+                className="p-6 group cursor-pointer bg-gradient-celebration border border-festival-lantern/30"
+                onClick={() => setActiveView('cultural-calendar')}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">📅</span>
+                  <div className="w-12 h-12 bg-festival-lantern/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                    <span className="text-2xl">🏮</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Events</h3>
-                  <p className="text-sm text-gray-600 chinese-text">教會活動</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Cultural Calendar</h3>
+                  <p className="text-sm text-gray-600 chinese-text">文化日曆 - 春節中秋</p>
                 </div>
               </Card>
 
               <Card 
                 variant="scripture" 
-                className="p-6 group cursor-pointer"
-                onClick={() => setActiveView('prayer')}
+                className="p-6 group cursor-pointer bg-gradient-youth-energy border border-youth-connection/30"
+                onClick={() => setActiveView('generation-bridge')}
               >
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">🙏</span>
+                  <div className="w-12 h-12 bg-youth-connection/20 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                    <span className="text-2xl">🤝</span>
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Prayer Community</h3>
-                  <p className="text-sm text-gray-600 chinese-text">禱告社區</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Generation Bridge</h3>
+                  <p className="text-sm text-gray-600 chinese-text">世代橋樑 - 青年長者</p>
                 </div>
               </Card>
             </div>
@@ -408,8 +419,48 @@ export default function Home() {
             <PrayerRequests showPublicOnly={true} />
           </div>
         )}
+
+        {activeView === 'cultural-calendar' && (
+          <div className="space-y-8">
+            <div className="flex items-center gap-4 mb-8">
+              <Button variant="ghost" onClick={() => setActiveView('home')}>
+                ← Back
+              </Button>
+              <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-gray-100">Cultural Calendar</h2>
+              <span className="chinese-text text-gray-500">文化日曆</span>
+            </div>
+            
+            <CulturalCalendar />
+          </div>
+        )}
+
+        {activeView === 'generation-bridge' && (
+          <div className="space-y-8">
+            <div className="flex items-center gap-4 mb-8">
+              <Button variant="ghost" onClick={() => setActiveView('home')}>
+                ← Back
+              </Button>
+              <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-gray-100">Generation Bridge</h2>
+              <span className="chinese-text text-gray-500">世代橋樑</span>
+            </div>
+            
+            <GenerationBridge />
+          </div>
+        )}
       </main>
       
+      {/* Elder-Friendly Mode Toggle */}
+      <ElderFriendlyMode />
+
+      {/* WeChat-style Floating Action Button */}
+      <WeChatStyleFAB
+        onPrayerWall={() => setActiveView('prayer')}
+        onOffering={() => console.log('Opening offerings')}
+        onFamilyConnect={() => setActiveView('generation-bridge')}
+        onCulturalCalendar={() => setActiveView('cultural-calendar')}
+        onElderHelp={() => console.log('Opening elder help')}
+      />
+
       {/* Mobile Navigation - Only visible on small screens */}
       <MobileNavigationBar 
         items={createChurchNavigation(activeView, setActiveView)}

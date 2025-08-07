@@ -1,16 +1,21 @@
 {
-  "appName": "香港教會",
-  "appTagline": "每日靈修、禱告與團契連結",
+  "appName": "中加教會 Coquitlam",
+  "appTagline": "傳統與信仰的數字橋樑 - 服務華裔加拿大社區",
   
   "navigation": {
     "home": "主頁",
-    "devotions": "靈修", 
-    "events": "活動",
+    "devotions": "家庭靈修", 
+    "events": "文化節慶",
     "groups": "小組",
-    "prayer": "禱告",
+    "prayer": "禱告牆",
     "profile": "個人檔案",
-    "bible": "聖經",
-    "settings": "設定"
+    "bible": "雙語聖經",
+    "settings": "設定",
+    "cultural_calendar": "文化日曆",
+    "generation_bridge": "世代橋樑",
+    "family_connections": "家庭連結",
+    "elder_care": "長者關愛",
+    "youth_ministry": "青年事工"
   },
   
   "actions": {
@@ -264,5 +269,57 @@
   "common": {
     "try_again": "重試",
     "load_more": "載入更多"
+  },
+
+  "chinese_canadian": {
+    "community_title": "華裔加拿大基督教社區",
+    "heritage_meets_faith": "傳統與信仰的橋樑",
+    "serving_coquitlam": "服務高貴林華裔社區",
+    "generation_bridge": "世代橋樑",
+    "cultural_celebrations": "文化慶典",
+    "family_devotions": "家庭靈修",
+    "elder_wisdom": "長者智慧",
+    "youth_energy": "青年活力",
+    "bilingual_ministry": "雙語事工",
+    
+    "festivals": {
+      "chinese_new_year": "農曆新年",
+      "mid_autumn": "中秋節", 
+      "dragon_boat": "端午節",
+      "qingming": "清明節",
+      "canada_day_heritage": "加拿大國慶傳承",
+      "thanksgiving_gratitude": "感恩節感謝"
+    },
+    
+    "connections": {
+      "elder_youth_pair": "長者青年配對",
+      "tech_help": "科技幫助", 
+      "translation_support": "翻譯支援",
+      "devotion_partner": "靈修夥伴",
+      "mentorship": "人生指導",
+      "family_tree": "家族樹",
+      "cultural_sharing": "文化分享"
+    },
+    
+    "values": {
+      "filial_piety": "孝道",
+      "respect_elders": "尊敬長者",
+      "family_unity": "家庭和諧",
+      "cultural_preservation": "文化傳承",
+      "christian_faith": "基督信仰",
+      "community_service": "社區服務",
+      "generational_wisdom": "世代智慧"
+    },
+    
+    "features": {
+      "wechat_style": "微信風格",
+      "elder_friendly": "長者友善",
+      "bilingual_interface": "雙語介面",
+      "cultural_calendar": "文化日曆",
+      "family_accounts": "家庭帳戶",
+      "prayer_wall": "禱告牆",
+      "recipe_sharing": "食譜分享",
+      "cultural_mentorship": "文化指導"
+    }
   }
 }
