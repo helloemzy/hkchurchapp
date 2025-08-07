@@ -2,55 +2,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+HK:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  /* Enhanced Brand Colors - Exact Purple Brand Required */
-  --primary-purple: #7C3AED;
-  --primary-purple-dark: #6D28D9;
-  --primary-purple-light: #A855F7;
+  /* Warm Earthy Brand Colors - Natural & Grounded */
+  --primary-terracotta: #D2691E;
+  --primary-terracotta-dark: #B8611A;
+  --primary-terracotta-light: #E67A2E;
   
-  /* Enhanced Vibrant Gradient System - Inspired by Reference Designs */
-  --gradient-primary: linear-gradient(135deg, #f8f7ff 0%, #e4dcff 50%, #d1c4ff 100%);
-  --gradient-devotion: linear-gradient(135deg, #fef7e0 0%, #f3efff 50%, #fff8e1 100%);
-  --gradient-worship: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%);
-  --gradient-prayer: linear-gradient(135deg, #fff8e1 0%, #f3efff 100%);
-  --gradient-scripture: linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%);
-  --gradient-accent: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
-  --gradient-hero: linear-gradient(135deg, #f8f7ff 0%, #fef7e0 30%, #f0f9ff 70%, #f3efff 100%);
+  /* Warm Earthy Gradient System - Natural & Cozy */
+  --gradient-primary: linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 50%, #E6D3A3 100%);
+  --gradient-devotion: linear-gradient(135deg, #F4E4BC 0%, #E6D3A3 50%, #FDF6E3 100%);
+  --gradient-worship: linear-gradient(135deg, #F0E6D2 0%, #E8D5B7 50%, #F5E6CA 100%);
+  --gradient-prayer: linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 100%);
+  --gradient-scripture: linear-gradient(135deg, #E8F5E8 0%, #D4E4D0 100%);
+  --gradient-accent: linear-gradient(135deg, #D2691E 0%, #DAA520 100%);
+  --gradient-hero: linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 30%, #E8F5E8 70%, #F0E6D2 100%);
   
-  /* Vibrant Card Gradients - Reference 51438 Inspired */
-  --gradient-vibrant-purple: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C084FC 100%);
-  --gradient-vibrant-blue: linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%);
-  --gradient-vibrant-green: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
-  --gradient-vibrant-orange: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%);
-  --gradient-vibrant-pink: linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%);
-  --gradient-vibrant-red: linear-gradient(135deg, #EF4444 0%, #F87171 50%, #FCA5A5 100%);
+  /* Earthy Natural Gradients - Warm & Grounded */
+  --gradient-earthy-terracotta: linear-gradient(135deg, #D2691E 0%, #E67A2E 50%, #F08A3E 100%);
+  --gradient-earthy-sage: linear-gradient(135deg, #9CAF88 0%, #A8BB94 50%, #B4C7A0 100%);
+  --gradient-earthy-forest: linear-gradient(135deg, #3C5F41 0%, #4A6B4F 50%, #58775D 100%);
+  --gradient-earthy-harvest: linear-gradient(135deg, #CC7A00 0%, #D88C1A 50%, #E49E34 100%);
+  --gradient-earthy-clay: linear-gradient(135deg, #B22222 0%, #C73E3E 50%, #DC5A5A 100%);
+  --gradient-earthy-mushroom: linear-gradient(135deg, #8B7355 0%, #9B8365 50%, #AB9375 100%);
   
-  /* Organic Flow Gradients - Reference 51438 Style */
-  --gradient-organic-flow: linear-gradient(135deg, #A855F7 0%, #EC4899 25%, #F59E0B 50%, #10B981 75%, #3B82F6 100%);
-  --gradient-soft-wave: linear-gradient(135deg, #E0E7FF 0%, #F3E8FF 25%, #FEF3E2 50%, #F0FDF4 75%, #EFF6FF 100%);
+  /* Natural Flow Gradients - Earthy Harmony */
+  --gradient-organic-flow: linear-gradient(135deg, #D2691E 0%, #9CAF88 25%, #DAA520 50%, #8B4513 75%, #3C5F41 100%);
+  --gradient-soft-wave: linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 25%, #E8F5E8 50%, #F0E6D2 75%, #E6D3A3 100%);
   
-  /* Cultural Heritage Vibrant Gradients */
-  --gradient-chinese-celebration: linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #EAB308 100%);
-  --gradient-jade-prosperity: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
-  --gradient-festival-joy: linear-gradient(135deg, #EC4899 0%, #F59E0B 50%, #DC2626 100%);
-  --gradient-wisdom-bridge: linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%);
+  /* Cultural Heritage Earthy Gradients */
+  --gradient-chinese-celebration: linear-gradient(135deg, #B22222 0%, #DAA520 50%, #CC7A00 100%);
+  --gradient-jade-earth: linear-gradient(135deg, #7BA428 0%, #9CAF88 50%, #A8BB94 100%);
+  --gradient-festival-warmth: linear-gradient(135deg, #C08081 0%, #DAA520 50%, #B22222 100%);
+  --gradient-wisdom-bridge: linear-gradient(135deg, #8B4513 0%, #CC7A00 50%, #DAA520 100%);
   
-  /* Spiritual Theme Colors */
-  --devotion-dawn: #fef7e0;
-  --devotion-lavender: #f3efff;
-  --prayer-gold: #fff8e1;
-  --scripture-sage: #f0f8f4;
-  --worship-rose: #fdf2f8;
-  --fellowship-sky: #f0f9ff;
+  /* Earthy Spiritual Theme Colors */
+  --devotion-dawn: #F4E4BC;
+  --devotion-earth: #E6D3A3;
+  --prayer-gold: #FDF6E3;
+  --scripture-sage: #E8F5E8;
+  --worship-clay: #F0E6D2;
+  --fellowship-warm: #F5E6CA;
   
-  /* Enhanced Semantic Colors */
-  --success: #16a34a;
-  --success-light: #dcfce7;
-  --warning: #ea580c;
-  --warning-light: #fff7ed;
-  --error: #dc2626;
-  --error-light: #fef2f2;
-  --info: #0ea5e9;
-  --info-light: #f0f9ff;
+  /* Earthy Semantic Colors */
+  --success: #7BA428;
+  --success-light: #E8F5E8;
+  --warning: #CC7A00;
+  --warning-light: #FDF6E3;
+  --error: #B22222;
+  --error-light: #F5E6E6;
+  --info: #3C5F41;
+  --info-light: #E8F5E8;
   
   /* Enhanced Grayscale */
   --gray-25: #fefefe;
@@ -66,22 +66,22 @@
   --gray-900: #111827;
   --gray-950: #030712;
   
-  /* Background Colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F0F0F3;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F9FAFB;
+  /* Warm Earthy Background Colors */
+  --bg-primary: #FDF6E3;
+  --bg-secondary: #F4E4BC;
+  --bg-card: #FEFBF3;
+  --bg-card-hover: #F8F2E6;
   
-  /* Special Purpose Colors */
-  --devotion-lavender: #E6E6FA;
-  --prayer-gold: #FEF3C7;
-  --scripture-blue: #DBEAFE;
+  /* Earthy Special Purpose Colors */
+  --devotion-earth: #E6D3A3;
+  --prayer-gold: #F4E4BC;
+  --scripture-sage: #E8F5E8;
   
-  /* Event Categories */
-  --event-worship: #7C3AED;
-  --event-fellowship: #10B981;
-  --event-study: #F59E0B;
-  --event-service: #3B82F6;
+  /* Earthy Event Categories */
+  --event-worship: #D2691E;
+  --event-fellowship: #9CAF88;
+  --event-study: #DAA520;
+  --event-service: #8B4513;
   
   /* Enhanced Font Stack */
   --font-primary: 'Inter', 'Noto Sans HK', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -153,30 +153,30 @@
   --radius-2xl: 1.25rem; /* 20px */
   --radius-full: 9999px;
   
-  /* Enhanced Vibrant Shadow System */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Warm Earthy Shadow System */
+  --shadow-sm: 0 1px 2px 0 rgba(139, 69, 19, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(139, 69, 19, 0.12);
+  --shadow-lg: 0 10px 15px -3px rgba(139, 69, 19, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(139, 69, 19, 0.18);
+  --shadow-card: 0 4px 15px rgba(139, 69, 19, 0.12);
+  --shadow-hover: 0 10px 30px rgba(139, 69, 19, 0.2);
   
-  /* Vibrant Colored Shadows - Reference 29377 Inspired */
-  --shadow-purple: 0 8px 25px rgba(124, 58, 237, 0.25);
-  --shadow-blue: 0 8px 25px rgba(59, 130, 246, 0.25);
-  --shadow-green: 0 8px 25px rgba(16, 185, 129, 0.25);
-  --shadow-orange: 0 8px 25px rgba(245, 158, 11, 0.25);
-  --shadow-pink: 0 8px 25px rgba(236, 72, 153, 0.25);
-  --shadow-red: 0 8px 25px rgba(239, 68, 68, 0.25);
+  /* Earthy Natural Shadows */
+  --shadow-terracotta: 0 8px 25px rgba(210, 105, 30, 0.25);
+  --shadow-sage: 0 8px 25px rgba(156, 175, 136, 0.25);
+  --shadow-forest: 0 8px 25px rgba(60, 95, 65, 0.25);
+  --shadow-harvest: 0 8px 25px rgba(218, 165, 32, 0.25);
+  --shadow-clay: 0 8px 25px rgba(178, 34, 34, 0.25);
+  --shadow-mushroom: 0 8px 25px rgba(139, 115, 85, 0.25);
   
-  /* Glowing Effects */
-  --shadow-glow-purple: 0 0 20px rgba(124, 58, 237, 0.4);
-  --shadow-glow-soft: 0 0 30px rgba(124, 58, 237, 0.2);
+  /* Earthy Glowing Effects */
+  --shadow-glow-terracotta: 0 0 20px rgba(210, 105, 30, 0.4);
+  --shadow-glow-soft: 0 0 30px rgba(139, 69, 19, 0.2);
   
-  /* Cultural Shadow Effects */
-  --shadow-chinese-red: 0 8px 25px rgba(220, 38, 38, 0.3);
-  --shadow-jade-green: 0 8px 25px rgba(5, 150, 105, 0.3);
-  --shadow-gold: 0 8px 25px rgba(245, 158, 11, 0.3);
+  /* Earthy Cultural Shadow Effects */
+  --shadow-chinese-red: 0 8px 25px rgba(178, 34, 34, 0.3);
+  --shadow-jade-earth: 0 8px 25px rgba(123, 164, 40, 0.3);
+  --shadow-golden-harvest: 0 8px 25px rgba(218, 165, 32, 0.3);
   
   /* Animation & Transitions */
   --duration-fast: 150ms;
@@ -209,9 +209,25 @@
   --container-lg: 1024px;
   --container-xl: 1280px;
   
-  /* Legacy variables for Next.js theme */
+  /* Earthy theme variables for Next.js */
   --background: var(--bg-primary);
-  --foreground: var(--gray-900);
+  --foreground: var(--rich-chocolate);
+  
+  /* Additional earthy color definitions */
+  --terracotta: #D2691E;
+  --sage-green: #9CAF88;
+  --warm-sand: #F4E4BC;
+  --deep-forest: #3C5F41;
+  --burnt-orange: #CC7A00;
+  --mushroom: #8B7355;
+  --chinese-tea: #8B4513;
+  --jade-earth: #7BA428;
+  --golden-harvest: #DAA520;
+  --clay-red: #B22222;
+  --warm-cream: #FDF6E3;
+  --soft-taupe: #D2B48C;
+  --rich-chocolate: #3C2414;
+  --dusty-rose: #C08081;
 }
 
 /* Enhanced Dark Mode - DISABLED for warm church experience */
@@ -272,7 +288,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary-purple);
+  --color-primary: var(--terracotta);
   --color-card: var(--bg-card);
   --font-sans: var(--font-primary);
   --font-display: var(--font-display);
@@ -337,7 +353,7 @@ body {
   animation-delay: calc(var(--stagger-delay, 0) * 50ms);
 }
 
-/* Enhanced Vibrant Animation Keyframes */
+/* Warm Earthy Animation Keyframes */
 @keyframes gentlePulse {
   0%, 100% { 
     opacity: 1; 
@@ -349,12 +365,21 @@ body {
   }
 }
 
-@keyframes reverentGlow {
+@keyframes earthyGlow {
   0%, 100% { 
-    box-shadow: 0 0 0 rgba(124, 58, 237, 0); 
+    box-shadow: 0 0 0 rgba(210, 105, 30, 0); 
   }
   50% { 
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2); 
+    box-shadow: 0 0 20px rgba(210, 105, 30, 0.3); 
+  }
+}
+
+@keyframes reverentGlow {
+  0%, 100% { 
+    box-shadow: 0 0 0 rgba(139, 69, 19, 0); 
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(139, 69, 19, 0.2); 
   }
 }
 
@@ -367,13 +392,22 @@ body {
   }
 }
 
-/* Vibrant Interactive Animations */
+/* Earthy Interactive Animations */
 @keyframes vibrantGlow {
   0%, 100% { 
-    box-shadow: var(--shadow-card), 0 0 0 rgba(124, 58, 237, 0); 
+    box-shadow: var(--shadow-card), 0 0 0 rgba(210, 105, 30, 0); 
   }
   50% { 
-    box-shadow: var(--shadow-hover), 0 0 30px rgba(124, 58, 237, 0.3); 
+    box-shadow: var(--shadow-hover), 0 0 30px rgba(210, 105, 30, 0.3); 
+  }
+}
+
+@keyframes earthyGlow {
+  0%, 100% { 
+    box-shadow: var(--shadow-card), 0 0 0 rgba(139, 69, 19, 0); 
+  }
+  50% { 
+    box-shadow: var(--shadow-hover), 0 0 25px rgba(139, 69, 19, 0.25); 
   }
 }
 
@@ -430,13 +464,13 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: all var(--duration-normal) var(--ease-in-out);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(244, 228, 188, 0.3);
 }
 
 .devotion-card:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-purple);
-  animation: vibrantGlow 2s ease-in-out infinite;
+  box-shadow: var(--shadow-terracotta);
+  animation: earthyGlow 2s ease-in-out infinite;
 }
 
 .devotion-card::before {
@@ -446,23 +480,23 @@ body {
   right: -20px;
   width: 80px;
   height: 80px;
-  background: var(--gradient-vibrant-purple);
+  background: var(--gradient-earthy-terracotta);
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 0.2;
   animation: floatingOrb 6s ease-in-out infinite;
 }
 
 .prayer-card {
   background: var(--gradient-prayer);
   border-radius: 1rem;
-  border: 1px solid rgba(255, 248, 225, 0.8);
+  border: 1px solid rgba(253, 246, 227, 0.8);
   position: relative;
   overflow: hidden;
 }
 
 .prayer-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-gold);
+  box-shadow: var(--shadow-golden-harvest);
 }
 
 .prayer-card::after {
@@ -472,43 +506,43 @@ body {
   left: 0.75rem;
   width: 8px;
   height: 8px;
-  background: var(--gradient-vibrant-orange);
+  background: var(--gradient-earthy-harvest);
   border-radius: 50%;
   animation: gentlePulse 3s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
 }
 
 /* Vibrant Card Variants */
-.card-vibrant-purple {
-  background: var(--gradient-vibrant-purple);
+.card-earthy-terracotta {
+  background: var(--gradient-earthy-terracotta);
   color: white;
-  box-shadow: var(--shadow-purple);
+  box-shadow: var(--shadow-terracotta);
   border: none;
 }
 
-.card-vibrant-purple:hover {
+.card-earthy-terracotta:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: var(--shadow-purple), var(--shadow-glow-purple);
+  box-shadow: var(--shadow-terracotta), var(--shadow-glow-terracotta);
 }
 
-.card-vibrant-blue {
-  background: var(--gradient-vibrant-blue);
-  color: white;
-  box-shadow: var(--shadow-blue);
+.card-earthy-sage {
+  background: var(--gradient-earthy-sage);
+  color: var(--rich-chocolate);
+  box-shadow: var(--shadow-sage);
   border: none;
 }
 
-.card-vibrant-green {
-  background: var(--gradient-vibrant-green);
+.card-earthy-forest {
+  background: var(--gradient-earthy-forest);
   color: white;
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-forest);
   border: none;
 }
 
-.card-vibrant-orange {
-  background: var(--gradient-vibrant-orange);
+.card-earthy-harvest {
+  background: var(--gradient-earthy-harvest);
   color: white;
-  box-shadow: var(--shadow-orange);
+  box-shadow: var(--shadow-harvest);
   border: none;
 }
 
@@ -528,7 +562,7 @@ body {
   right: -50%;
   width: 100%;
   height: 100%;
-  background: var(--gradient-jade-prosperity);
+  background: var(--gradient-jade-earth);
   border-radius: 50%;
   opacity: 0.1;
   animation: gradientShift 8s ease-in-out infinite;
@@ -560,12 +594,12 @@ body {
   font-size: 1.125rem;
   line-height: 1.8;
   font-style: italic;
-  color: var(--gray-700);
+  color: var(--deep-forest);
   position: relative;
   padding: 1rem;
   background: var(--gradient-scripture);
   border-radius: 0.75rem;
-  border-left: 4px solid var(--primary-purple);
+  border-left: 4px solid var(--terracotta);
 }
 
 .scripture-text::before {
@@ -574,8 +608,8 @@ body {
   top: -0.25rem;
   left: 0.5rem;
   font-size: 3rem;
-  color: var(--primary-purple);
-  opacity: 0.3;
+  color: var(--terracotta);
+  opacity: 0.4;
   font-family: var(--font-display);
 }
 
@@ -590,15 +624,15 @@ body {
   font-weight: 500;
 }
 
-/* Enhanced Focus States for Accessibility */
+/* Earthy Focus States for Accessibility */
 .focus-ring {
-  outline: 2px solid var(--primary-purple);
+  outline: 2px solid var(--terracotta);
   outline-offset: 2px;
   border-radius: inherit;
 }
 
 .focus-ring-inset {
-  outline: 2px solid var(--primary-purple);
+  outline: 2px solid var(--terracotta);
   outline-offset: -2px;
   border-radius: inherit;
 }

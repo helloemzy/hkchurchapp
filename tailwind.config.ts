@@ -9,127 +9,127 @@ const config: Config = {
   darkMode: ['class', '[data-theme="dark-disabled"]'], // Dark mode disabled for warm church experience
   theme: {
     extend: {
-      // Chinese Canadian Cultural Color Palette - Where Heritage Meets Faith
+      // Warm Earthy Cultural Color Palette - Grounded Faith Community
       colors: {
         primary: {
-          25: '#f8f7ff',
-          50: '#f0edff',
-          100: '#e4dcff',
-          200: '#d1c4ff',
-          300: '#b8a3ff',
-          400: '#A855F7',
-          500: '#7C3AED', // Faith purple - continuity with existing
-          600: '#6D28D9',
-          700: '#5B21B6',
-          800: '#4C1D95',
-          900: '#3B1F7A',
-          950: '#1a0f35',
+          25: '#FDF6E3',
+          50: '#F4E4BC',
+          100: '#E6D3A3',
+          200: '#D8C28A',
+          300: '#CAB171',
+          400: '#BC9F58',
+          500: '#D2691E', // Warm terracotta - earthy & welcoming
+          600: '#B8611A',
+          700: '#9E5416',
+          800: '#844712',
+          900: '#6A3A0E',
+          950: '#3C2108',
         },
-        // Chinese Canadian Cultural Heritage Colors
+        // Earthy Chinese Canadian Cultural Heritage Colors
         chinese: {
-          red: '#C8102E',      // 中国红 - Celebrations, Blessings, Joy
-          gold: '#FFD700',     // 金色 - Prosperity, Success, Honor
-          jade: '#00A86B',     // 玉绿 - Harmony, Peace, Growth
-          crimson: '#DC143C',  // 深红 - Deep devotion, Love
-          amber: '#FFBF00',    // 琥珀 - Wisdom, Warmth
-          emerald: '#50C878',  // 翡翠 - New life, Hope
+          red: '#B22222',      // 中国红 - Clay red, grounded celebration
+          gold: '#DAA520',     // 金色 - Golden harvest, warm prosperity
+          jade: '#7BA428',     // 玉绿 - Jade earth, natural harmony
+          crimson: '#A0252F',  // 深红 - Earthy deep devotion
+          amber: '#CC7A00',    // 琥珀 - Burnt amber, natural warmth
+          emerald: '#9CAF88',  // 翡翠 - Sage green, grounded hope
         },
-        // Canadian Heritage Colors
+        // Earthy Canadian Heritage Colors
         canadian: {
-          red: '#FF0000',      // Canadian red - National identity
-          white: '#FFFFFF',    // Purity, Peace
-          maple: '#8B4513',    // Maple brown - Grounding, Stability
+          red: '#B22222',      // Canadian red - Earthy national identity
+          cream: '#FDF6E3',    // Warm cream - Natural purity
+          maple: '#8B4513',    // Maple brown - Deep grounding, Stability
         },
-        // Generational Bridge Colors
+        // Earthy Generational Bridge Colors
         elder: {
           wisdom: '#8B4513',   // Deep brown - Wisdom, Experience
-          respect: '#DAA520',  // Golden rod - Honor, Reverence
-          peace: '#708090',    // Slate gray - Tranquility
+          respect: '#DAA520',  // Golden harvest - Honor, Reverence
+          peace: '#8B7355',    // Mushroom - Natural tranquility
         },
         youth: {
-          energy: '#FF6347',   // Tomato - Vitality, Passion
-          innovation: '#4169E1', // Royal blue - Technology, Future
-          connection: '#32CD32', // Lime green - Community, Growth
+          energy: '#D2691E',   // Terracotta - Grounded vitality
+          innovation: '#3C5F41', // Deep forest - Natural future
+          connection: '#9CAF88', // Sage green - Organic community growth
         },
-        // Cultural Festival Colors
+        // Earthy Cultural Festival Colors
         festival: {
-          spring: '#FF69B4',   // Hot pink - Spring Festival energy
-          autumn: '#FF8C00',   // Dark orange - Mid-Autumn warmth
-          dragon: '#B22222',   // Fire brick - Dragon Boat strength
-          lantern: '#FFD700',  // Gold - Lantern Festival light
+          spring: '#C08081',   // Dusty rose - Spring Festival warmth
+          autumn: '#CC7A00',   // Burnt orange - Mid-Autumn earth
+          dragon: '#B22222',   // Clay red - Dragon Boat strength
+          lantern: '#DAA520',  // Golden harvest - Lantern Festival glow
         },
-        // Enhanced semantic colors
+        // Earthy semantic colors
         success: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#16a34a',
-          600: '#15803d',
-          700: '#166534',
-          800: '#14532d',
-          900: '#14532d',
+          50: '#F0F8F4',
+          100: '#E8F5E8',
+          200: '#D4E4D0',
+          300: '#B4C7A0',
+          400: '#9CAF88',
+          500: '#7BA428',
+          600: '#6D9324',
+          700: '#5F821F',
+          800: '#51711B',
+          900: '#436016',
         },
         warning: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#ea580c',
-          600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b',
-          900: '#7f1d1d',
+          50: '#FDF6E3',
+          100: '#F4E4BC',
+          200: '#E6D3A3',
+          300: '#D8C28A',
+          400: '#DAA520',
+          500: '#CC7A00',
+          600: '#B86A00',
+          700: '#A45A00',
+          800: '#904A00',
+          900: '#7C3A00',
         },
         error: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#dc2626',
-          600: '#b91c1c',
-          700: '#991b1b',
-          800: '#7f1d1d',
-          900: '#7f1d1d',
+          50: '#F5E6E6',
+          100: '#EBCCCC',
+          200: '#D7A0A0',
+          300: '#C37373',
+          400: '#B84747',
+          500: '#B22222',
+          600: '#9F1F1F',
+          700: '#8C1B1B',
+          800: '#791818',
+          900: '#661414',
         },
         info: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#E8F5E8',
+          100: '#D1EAD1',
+          200: '#A3D5A3',
+          300: '#75C075',
+          400: '#5BA05B',
+          500: '#3C5F41',
+          600: '#36553A',
+          700: '#304B33',
+          800: '#2A412C',
+          900: '#243725',
         },
-        // Event categories
+        // Earthy event categories
         event: {
-          worship: '#7c3aed',
-          fellowship: '#10b981',
-          study: '#f59e0b',
-          service: '#3b82f6',
+          worship: '#D2691E',
+          fellowship: '#9CAF88',
+          study: '#DAA520',
+          service: '#8B4513',
         },
-        // Spiritual theme colors
+        // Earthy spiritual theme colors
         devotion: {
-          dawn: '#fef7e0',
-          lavender: '#f3efff',
+          dawn: '#F4E4BC',
+          earth: '#E6D3A3',
         },
         prayer: {
-          gold: '#fff8e1',
+          gold: '#FDF6E3',
         },
         scripture: {
-          sage: '#f0f8f4',
+          sage: '#E8F5E8',
         },
         worship: {
-          rose: '#fdf2f8',
+          clay: '#F0E6D2',
         },
         fellowship: {
-          sky: '#f0f9ff',
+          warm: '#F5E6CA',
         },
         // Enhanced gray scale
         gray: {
@@ -207,34 +207,51 @@ const config: Config = {
         'full': '9999px',
       },
       
-      // Enhanced Box Shadow System with Vibrant Colors
+      // Earthy Box Shadow System with Natural Colors
       boxShadow: {
-        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        'card': '0 4px 15px rgba(0, 0, 0, 0.1)',
-        'hover': '0 10px 30px rgba(0, 0, 0, 0.15)',
+        'sm': '0 1px 2px 0 rgba(139, 69, 19, 0.08)',
+        'md': '0 4px 6px -1px rgba(139, 69, 19, 0.12)',
+        'lg': '0 10px 15px -3px rgba(139, 69, 19, 0.15)',
+        'xl': '0 20px 25px -5px rgba(139, 69, 19, 0.18)',
+        '2xl': '0 25px 50px -12px rgba(139, 69, 19, 0.25)',
+        'card': '0 4px 15px rgba(139, 69, 19, 0.12)',
+        'hover': '0 10px 30px rgba(139, 69, 19, 0.2)',
         
-        // Vibrant Colored Shadows - Reference 29377 Inspired
-        'purple': '0 8px 25px rgba(124, 58, 237, 0.25)',
-        'blue': '0 8px 25px rgba(59, 130, 246, 0.25)',
-        'green': '0 8px 25px rgba(16, 185, 129, 0.25)',
-        'orange': '0 8px 25px rgba(245, 158, 11, 0.25)',
-        'pink': '0 8px 25px rgba(236, 72, 153, 0.25)',
-        'red': '0 8px 25px rgba(239, 68, 68, 0.25)',
+        // Earthy Natural Colored Shadows
+        'terracotta': '0 8px 25px rgba(210, 105, 30, 0.25)',
+        'sage': '0 8px 25px rgba(156, 175, 136, 0.25)',
+        'forest': '0 8px 25px rgba(60, 95, 65, 0.25)',
+        'harvest': '0 8px 25px rgba(218, 165, 32, 0.25)',
+        'clay': '0 8px 25px rgba(178, 34, 34, 0.25)',
+        'mushroom': '0 8px 25px rgba(139, 115, 85, 0.25)',
         
-        // Glowing Effects
-        'glow-purple': '0 0 20px rgba(124, 58, 237, 0.4)',
-        'glow-blue': '0 0 20px rgba(59, 130, 246, 0.4)',
-        'glow-green': '0 0 20px rgba(16, 185, 129, 0.4)',
-        'glow-soft': '0 0 30px rgba(124, 58, 237, 0.2)',
+        // Backward compatibility with natural equivalents
+        'purple': '0 8px 25px rgba(139, 115, 85, 0.25)',
+        'blue': '0 8px 25px rgba(60, 95, 65, 0.25)',
+        'green': '0 8px 25px rgba(156, 175, 136, 0.25)',
+        'orange': '0 8px 25px rgba(204, 122, 0, 0.25)',
+        'pink': '0 8px 25px rgba(192, 128, 129, 0.25)',
+        'red': '0 8px 25px rgba(178, 34, 34, 0.25)',
         
-        // Cultural Shadow Effects
-        'chinese-red': '0 8px 25px rgba(220, 38, 38, 0.3)',
-        'jade-green': '0 8px 25px rgba(5, 150, 105, 0.3)',
-        'gold': '0 8px 25px rgba(245, 158, 11, 0.3)',
+        // Earthy Glowing Effects
+        'glow-terracotta': '0 0 20px rgba(210, 105, 30, 0.4)',
+        'glow-sage': '0 0 20px rgba(156, 175, 136, 0.4)',
+        'glow-forest': '0 0 20px rgba(60, 95, 65, 0.4)',
+        'glow-soft': '0 0 30px rgba(139, 69, 19, 0.2)',
+        
+        // Backward compatibility with earthy equivalents  
+        'glow-purple': '0 0 20px rgba(139, 115, 85, 0.4)',
+        'glow-blue': '0 0 20px rgba(60, 95, 65, 0.4)',
+        'glow-green': '0 0 20px rgba(156, 175, 136, 0.4)',
+        
+        // Earthy Cultural Shadow Effects
+        'chinese-red': '0 8px 25px rgba(178, 34, 34, 0.3)',
+        'jade-earth': '0 8px 25px rgba(123, 164, 40, 0.3)',
+        'golden-harvest': '0 8px 25px rgba(218, 165, 32, 0.3)',
+        
+        // Backward compatibility
+        'jade-green': '0 8px 25px rgba(123, 164, 40, 0.3)',
+        'gold': '0 8px 25px rgba(218, 165, 32, 0.3)',
       },
       
       // Animation & Transitions
@@ -251,56 +268,82 @@ const config: Config = {
         'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       
-      // Enhanced Chinese Canadian Cultural Gradients + Vibrant UX Patterns
+      // Warm Earthy Chinese Canadian Cultural Gradients
       backgroundImage: {
-        // Heritage Fusion Gradients
-        'gradient-heritage': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 70%, #f3efff 100%)',
-        'gradient-cultural': 'linear-gradient(135deg, #fef7e0 0%, #f3efff 30%, #fff0f0 70%, #f0f8f4 100%)',
-        'gradient-celebration': 'linear-gradient(135deg, #fff5f5 0%, #fff8e1 50%, #f0fff0 100%)',
+        // Heritage Fusion Earthy Gradients
+        'gradient-heritage': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 30%, #E8F5E8 70%, #F0E6D2 100%)',
+        'gradient-cultural': 'linear-gradient(135deg, #F4E4BC 0%, #E6D3A3 30%, #F0E6D2 70%, #E8F5E8 100%)',
+        'gradient-celebration': 'linear-gradient(135deg, #F5E6CA 0%, #FDF6E3 50%, #E8F5E8 100%)',
         
-        // Generational Bridge Gradients
-        'gradient-elder-wisdom': 'linear-gradient(135deg, #faf5e4 0%, #f5f3f0 100%)',
-        'gradient-youth-energy': 'linear-gradient(135deg, #f0f8ff 0%, #f0fff0 50%, #fff8f0 100%)',
-        'gradient-family-unity': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 25%, #f0f9ff 50%, #f0fff0 75%, #fff0f0 100%)',
+        // Natural Earth Tone Gradients  
+        'gradient-terracotta': 'linear-gradient(135deg, #D2691E 0%, #E67A2E 50%, #F08A3E 100%)',
+        'gradient-sage': 'linear-gradient(135deg, #9CAF88 0%, #A8BB94 50%, #B4C7A0 100%)',
+        'gradient-forest': 'linear-gradient(135deg, #3C5F41 0%, #4A6B4F 50%, #58775D 100%)',
+        'gradient-harvest': 'linear-gradient(135deg, #DAA520 0%, #E6B832 50%, #F2CB44 100%)',
+        'gradient-clay': 'linear-gradient(135deg, #B22222 0%, #C73E3E 50%, #DC5A5A 100%)',
+        'gradient-mushroom': 'linear-gradient(135deg, #8B7355 0%, #9B8365 50%, #AB9375 100%)',
         
-        // Festival Themed Gradients
-        'gradient-spring-festival': 'linear-gradient(135deg, #fff0f0 0%, #fff8e1 50%, #ff69b420 100%)',
-        'gradient-mid-autumn': 'linear-gradient(135deg, #fff8e1 0%, #ffa50020 50%, #8b451320 100%)',
-        'gradient-dragon-boat': 'linear-gradient(135deg, #f0f8ff 0%, #b2222220 50%, #00a86b20 100%)',
-        'gradient-lantern': 'linear-gradient(135deg, #fff8e1 0%, #ffd70020 100%)',
+        // Earthy Generational Bridge Gradients
+        'gradient-elder-wisdom': 'linear-gradient(135deg, #F4E4BC 0%, #E6D3A3 100%)',
+        'gradient-youth-energy': 'linear-gradient(135deg, #E8F5E8 0%, #D4E4D0 50%, #F0E6D2 100%)',
+        'gradient-family-unity': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 25%, #E8F5E8 50%, #F0E6D2 75%, #F5E6CA 100%)',
         
-        // Original gradients maintained for compatibility
-        'gradient-primary': 'linear-gradient(135deg, #f8f7ff 0%, #e4dcff 50%, #d1c4ff 100%)',
-        'gradient-devotion': 'linear-gradient(135deg, #fef7e0 0%, #f3efff 50%, #fff8e1 100%)',
-        'gradient-worship': 'linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #f0f8f4 100%)',
-        'gradient-prayer': 'linear-gradient(135deg, #fff8e1 0%, #f3efff 100%)',
-        'gradient-scripture': 'linear-gradient(135deg, #f0f8f4 0%, #f0f9ff 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
-        'gradient-hero': 'linear-gradient(135deg, #f8f7ff 0%, #fff8e1 30%, #f0f9ff 50%, #f0fff0 80%, #f3efff 100%)',
-        'gradient-dark': 'linear-gradient(135deg, #27272a 0%, #2a2a2e 50%, #3f3f46 100%)',
+        // Earthy Festival Themed Gradients
+        'gradient-spring-festival': 'linear-gradient(135deg, #F5E6CA 0%, #FDF6E3 50%, #C0808130 100%)',
+        'gradient-mid-autumn': 'linear-gradient(135deg, #F4E4BC 0%, #CC7A0030 50%, #8B451330 100%)',
+        'gradient-dragon-boat': 'linear-gradient(135deg, #E8F5E8 0%, #B2222230 50%, #7BA42830 100%)',
+        'gradient-lantern': 'linear-gradient(135deg, #FDF6E3 0%, #DAA52030 100%)',
         
-        // NEW: Vibrant Reference-Inspired Gradients
-        'gradient-vibrant-purple': 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C084FC 100%)',
-        'gradient-vibrant-blue': 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%)',
-        'gradient-vibrant-green': 'linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%)',
-        'gradient-vibrant-orange': 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%)',
-        'gradient-vibrant-pink': 'linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #F9A8D4 100%)',
-        'gradient-vibrant-red': 'linear-gradient(135deg, #EF4444 0%, #F87171 50%, #FCA5A5 100%)',
+        // Cultural Heritage Earthy Gradients
+        'gradient-chinese-tea': 'linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%)',
+        'gradient-jade-earth': 'linear-gradient(135deg, #7BA428 0%, #9CAF88 50%, #B4C7A0 100%)',
+        'gradient-golden-harvest': 'linear-gradient(135deg, #DAA520 0%, #E6B832 50%, #F2CB44 100%)',
         
-        // Organic Flow Gradients (Reference 51438 Style)
-        'gradient-organic-flow': 'linear-gradient(135deg, #A855F7 0%, #EC4899 25%, #F59E0B 50%, #10B981 75%, #3B82F6 100%)',
-        'gradient-soft-wave': 'linear-gradient(135deg, #E0E7FF 0%, #F3E8FF 25%, #FEF3E2 50%, #F0FDF4 75%, #EFF6FF 100%)',
+        // Updated earthy gradients for compatibility
+        'gradient-primary': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 50%, #E6D3A3 100%)',
+        'gradient-devotion': 'linear-gradient(135deg, #F4E4BC 0%, #E6D3A3 50%, #FDF6E3 100%)',
+        'gradient-worship': 'linear-gradient(135deg, #F0E6D2 0%, #E8D5B7 50%, #F5E6CA 100%)',
+        'gradient-prayer': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 100%)',
+        'gradient-scripture': 'linear-gradient(135deg, #E8F5E8 0%, #D4E4D0 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #D2691E 0%, #DAA520 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 30%, #E8F5E8 50%, #F0E6D2 80%, #F5E6CA 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #3C2414 0%, #4A2D1A 50%, #5E3921 100%)',
         
-        // Cultural Heritage Vibrant Gradients
-        'gradient-chinese-celebration': 'linear-gradient(135deg, #DC2626 0%, #F59E0B 50%, #EAB308 100%)',
-        'gradient-jade-prosperity': 'linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%)',
-        'gradient-festival-joy': 'linear-gradient(135deg, #EC4899 0%, #F59E0B 50%, #DC2626 100%)',
-        'gradient-wisdom-bridge': 'linear-gradient(135deg, #92400E 0%, #D97706 50%, #F59E0B 100%)',
+        // Earthy Natural-Inspired Gradients
+        'gradient-vibrant-terracotta': 'linear-gradient(135deg, #D2691E 0%, #E67A2E 50%, #F08A3E 100%)',
+        'gradient-vibrant-sage': 'linear-gradient(135deg, #9CAF88 0%, #A8BB94 50%, #B4C7A0 100%)',
+        'gradient-vibrant-forest': 'linear-gradient(135deg, #3C5F41 0%, #4A6B4F 50%, #58775D 100%)',
+        'gradient-vibrant-harvest': 'linear-gradient(135deg, #DAA520 0%, #E6B832 50%, #F2CB44 100%)',
+        'gradient-vibrant-clay': 'linear-gradient(135deg, #B22222 0%, #C73E3E 50%, #DC5A5A 100%)',
+        'gradient-vibrant-mushroom': 'linear-gradient(135deg, #8B7355 0%, #9B8365 50%, #AB9375 100%)',
         
-        // Interactive Shimmer Effects
-        'shimmer': 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-        'shimmer-gold': 'linear-gradient(90deg, transparent, rgba(245,158,11,0.4), transparent)',
-        'shimmer-purple': 'linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent)',
+        // Keep some natural purple/blue but with earthy tones
+        'gradient-vibrant-purple': 'linear-gradient(135deg, #8B7355 0%, #9B8365 50%, #AB9375 100%)',
+        'gradient-vibrant-blue': 'linear-gradient(135deg, #3C5F41 0%, #4A6B4F 50%, #58775D 100%)',
+        'gradient-vibrant-green': 'linear-gradient(135deg, #9CAF88 0%, #A8BB94 50%, #B4C7A0 100%)',
+        'gradient-vibrant-orange': 'linear-gradient(135deg, #CC7A00 0%, #D88C1A 50%, #E49E34 100%)',
+        'gradient-vibrant-pink': 'linear-gradient(135deg, #C08081 0%, #CC9192 50%, #D8A2A3 100%)',
+        'gradient-vibrant-red': 'linear-gradient(135deg, #B22222 0%, #C73E3E 50%, #DC5A5A 100%)',
+        
+        // Organic Earthy Flow Gradients 
+        'gradient-organic-flow': 'linear-gradient(135deg, #D2691E 0%, #C08081 25%, #DAA520 50%, #9CAF88 75%, #3C5F41 100%)',
+        'gradient-soft-wave': 'linear-gradient(135deg, #FDF6E3 0%, #F4E4BC 25%, #E8F5E8 50%, #F0E6D2 75%, #F5E6CA 100%)',
+        
+        // Cultural Heritage Earthy Gradients
+        'gradient-chinese-celebration': 'linear-gradient(135deg, #B22222 0%, #DAA520 50%, #CC7A00 100%)',
+        'gradient-jade-prosperity': 'linear-gradient(135deg, #7BA428 0%, #9CAF88 50%, #A8BB94 100%)',
+        'gradient-festival-joy': 'linear-gradient(135deg, #C08081 0%, #DAA520 50%, #B22222 100%)',
+        'gradient-wisdom-bridge': 'linear-gradient(135deg, #8B4513 0%, #CC7A00 50%, #DAA520 100%)',
+        
+        // Tea ceremony and natural elements
+        'gradient-tea-ceremony': 'linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%)',
+        'gradient-autumn-leaves': 'linear-gradient(135deg, #CC7A00 0%, #D2691E 50%, #DAA520 100%)',
+        
+        // Interactive Earthy Shimmer Effects
+        'shimmer': 'linear-gradient(90deg, transparent, rgba(253,246,227,0.6), transparent)',
+        'shimmer-gold': 'linear-gradient(90deg, transparent, rgba(218,165,32,0.4), transparent)',
+        'shimmer-terracotta': 'linear-gradient(90deg, transparent, rgba(210,105,30,0.4), transparent)',
+        'shimmer-sage': 'linear-gradient(90deg, transparent, rgba(156,175,136,0.4), transparent)',
       },
       
       // Container widths

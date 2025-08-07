@@ -9,22 +9,28 @@ const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-white dark:bg-gray-900 shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.02] border border-gray-100/50 dark:border-gray-800/50 backdrop-blur-sm',
-        devotion: 'bg-gradient-devotion rounded-2xl shadow-card hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-devotion-dawn/30 shimmer-effect',
-        worship: 'bg-gradient-worship rounded-xl shadow-card hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-worship-rose/30 shimmer-effect',
-        event: 'bg-white/80 dark:bg-gray-900/80 border border-gray-200/50 dark:border-gray-700/50 rounded-xl hover:shadow-lg hover:-translate-y-2 hover:scale-[1.01] backdrop-blur-md',
-        group: 'bg-white/90 dark:bg-gray-900/90 shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.01] overflow-hidden rounded-xl border border-gray-100/50 dark:border-gray-800/50 backdrop-blur-sm',
-        prayer: 'bg-gradient-prayer border border-prayer-gold/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        scripture: 'bg-gradient-scripture border border-scripture-sage/40 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        gradient: 'bg-gradient-primary shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] shimmer-effect',
-        elevated: 'bg-white/95 dark:bg-gray-800/95 shadow-xl border border-gray-100/50 dark:border-gray-700/50 rounded-2xl hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md',
-        hero: 'bg-gradient-hero shadow-xl rounded-3xl border border-primary-200/30 hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
-        // New vibrant variants inspired by references
-        vibrant: 'bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        cultural: 'bg-gradient-chinese-celebration text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
-        jade: 'bg-gradient-jade-prosperity text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
-        festival: 'bg-gradient-festival-joy text-white shadow-lg hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
-        organic: 'bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 text-white shadow-lg hover:shadow-xl hover:-translate-y-4 hover:scale-[1.03] border-none animate-pulse-slow',
+        default: 'bg-warm-cream dark:bg-rich-chocolate shadow-card hover:shadow-hover hover:-translate-y-2 hover:scale-[1.02] border border-warm-sand/50 dark:border-mushroom/50 backdrop-blur-sm',
+        devotion: 'bg-gradient-devotion rounded-2xl shadow-terracotta hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-devotion-dawn/30 shimmer-effect',
+        worship: 'bg-gradient-worship rounded-xl shadow-clay hover:shadow-hover hover:-translate-y-3 hover:scale-[1.02] border border-worship-clay/30 shimmer-effect',
+        event: 'bg-warm-cream/90 dark:bg-rich-chocolate/90 border border-soft-taupe/50 dark:border-mushroom/50 rounded-xl hover:shadow-terracotta hover:-translate-y-2 hover:scale-[1.01] backdrop-blur-md',
+        group: 'bg-warm-cream/95 dark:bg-rich-chocolate/95 shadow-card hover:shadow-sage hover:-translate-y-2 hover:scale-[1.01] overflow-hidden rounded-xl border border-warm-sand/50 dark:border-mushroom/50 backdrop-blur-sm',
+        prayer: 'bg-gradient-prayer border border-prayer-gold/40 rounded-xl shadow-golden-harvest hover:shadow-harvest hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        scripture: 'bg-gradient-scripture border border-scripture-sage/40 rounded-xl shadow-sage hover:shadow-forest hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        gradient: 'bg-gradient-primary shadow-terracotta hover:shadow-glow-terracotta hover:-translate-y-3 hover:scale-[1.02] shimmer-effect',
+        elevated: 'bg-warm-cream/98 dark:bg-rich-chocolate/98 shadow-xl border border-warm-sand/50 dark:border-mushroom/50 rounded-2xl hover:-translate-y-2 hover:shadow-2xl backdrop-blur-md',
+        hero: 'bg-gradient-hero shadow-xl rounded-3xl border border-terracotta/30 hover:-translate-y-2 hover:scale-[1.01] shimmer-effect',
+        // Earthy natural variants inspired by warm earth tones
+        vibrant: 'bg-gradient-terracotta text-white shadow-terracotta hover:shadow-glow-terracotta hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        cultural: 'bg-gradient-chinese-celebration text-white shadow-chinese-red hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
+        jade: 'bg-gradient-jade-earth text-white shadow-jade-earth hover:shadow-glow-sage hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        festival: 'bg-gradient-festival-warmth text-white shadow-clay hover:shadow-xl hover:-translate-y-3 hover:scale-[1.02] border-none relative overflow-hidden',
+        organic: 'bg-gradient-organic-flow text-white shadow-harvest hover:shadow-glow-terracotta hover:-translate-y-4 hover:scale-[1.03] border-none animate-pulse-slow',
+        
+        // Additional earthy variants
+        sage: 'bg-gradient-sage text-rich-chocolate shadow-sage hover:shadow-glow-sage hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        forest: 'bg-gradient-forest text-white shadow-forest hover:shadow-glow-forest hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        harvest: 'bg-gradient-harvest text-rich-chocolate shadow-harvest hover:shadow-golden-harvest hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
+        mushroom: 'bg-gradient-mushroom text-warm-cream shadow-mushroom hover:shadow-glow-soft hover:-translate-y-3 hover:scale-[1.02] border-none shimmer-effect',
       },
       size: {
         sm: 'p-4',
@@ -147,38 +153,38 @@ const DevotionCard = React.forwardRef<HTMLDivElement, DevotionCardProps>(
       ref={ref}
       {...props}
     >
-      {/* Floating gradient orbs inspired by reference 51438 */}
-      <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 animate-bounce" 
+      {/* Floating earthy orbs inspired by natural elements */}
+      <div className="absolute -top-8 -right-8 w-20 h-20 bg-gradient-to-br from-terracotta via-dusty-rose to-golden-harvest rounded-full opacity-20 group-hover:opacity-40 transition-all duration-500 animate-bounce" 
            style={{ animationDuration: '6s' }} />
-      <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-full opacity-15 group-hover:opacity-30 transition-all duration-700 animate-pulse" />
+      <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-sage-green via-mushroom to-clay-red rounded-full opacity-15 group-hover:opacity-30 transition-all duration-700 animate-pulse" />
       
       <CardHeader className="relative z-10">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
-              <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-ping opacity-30"></div>
+              <div className="w-3 h-3 bg-gradient-to-r from-terracotta to-golden-harvest rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-terracotta to-golden-harvest rounded-full animate-ping opacity-30"></div>
             </div>
-            <CardTitle className="text-purple-800 dark:text-purple-200 group-hover:text-purple-600 transition-colors font-bold text-lg">
+            <CardTitle className="text-deep-forest dark:text-warm-sand group-hover:text-terracotta transition-colors font-bold text-lg">
               {title}
             </CardTitle>
           </div>
           {readTime && (
-            <span className="text-xs font-semibold text-white bg-gradient-to-r from-purple-500 to-pink-500 px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg group-hover:shadow-xl transition-all">
+            <span className="text-xs font-semibold text-white bg-gradient-to-r from-terracotta to-dusty-rose px-3 py-1.5 rounded-full backdrop-blur-sm shadow-lg group-hover:shadow-xl transition-all">
               {readTime}
             </span>
           )}
         </div>
-        <CardDescription className="text-purple-600 dark:text-purple-300 font-semibold text-sm">
+        <CardDescription className="text-chinese-tea dark:text-warm-sand font-semibold text-sm">
           {date}
         </CardDescription>
         {verse && (
-          <div className="mt-5 p-5 bg-white/70 dark:bg-gray-800/70 rounded-2xl border border-white/60 backdrop-blur-md shadow-inner relative overflow-hidden">
+          <div className="mt-5 p-5 bg-warm-cream/80 dark:bg-rich-chocolate/70 rounded-2xl border border-warm-sand/60 backdrop-blur-md shadow-inner relative overflow-hidden">
             {/* Scripture decoration */}
-            <div className="absolute top-2 right-2 w-8 h-8 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full opacity-20"></div>
+            <div className="absolute top-2 right-2 w-8 h-8 bg-gradient-to-br from-sage-green to-dusty-rose rounded-full opacity-20"></div>
             <div className="flex items-start gap-3">
-              <div className="text-purple-500 text-3xl font-bold leading-none">"</div>
-              <p className="text-sm font-medium text-purple-800 dark:text-purple-200 italic leading-relaxed flex-1">
+              <div className="text-terracotta text-3xl font-bold leading-none">"</div>
+              <p className="text-sm font-medium text-deep-forest dark:text-warm-sand italic leading-relaxed flex-1">
                 {verse}
               </p>
             </div>
@@ -226,36 +232,36 @@ const EventCard = React.forwardRef<HTMLDivElement, EventCardProps>(
   ({ title, date, time, location, category, attendees, maxAttendees, onJoin, onShare, className, ...props }, ref) => {
     const categoryConfig = {
       worship: { 
-        bg: 'bg-gradient-to-r from-purple-500 to-violet-600', 
+        bg: 'bg-gradient-to-r from-terracotta to-burnt-orange', 
         text: 'text-white font-semibold', 
-        border: 'border-purple-300/50',
+        border: 'border-terracotta/50',
         icon: '🙏',
-        cardBg: 'bg-gradient-to-br from-purple-50 via-violet-50 to-purple-100',
-        shadow: 'shadow-purple'
+        cardBg: 'bg-gradient-to-br from-warm-cream via-warm-sand to-soft-taupe',
+        shadow: 'shadow-terracotta'
       },
       fellowship: { 
-        bg: 'bg-gradient-to-r from-emerald-500 to-green-600', 
+        bg: 'bg-gradient-to-r from-sage-green to-jade-earth', 
         text: 'text-white font-semibold', 
-        border: 'border-emerald-300/50',
+        border: 'border-sage-green/50',
         icon: '🤝',
-        cardBg: 'bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100',
-        shadow: 'shadow-green'
+        cardBg: 'bg-gradient-to-br from-warm-cream via-fellowship-warm to-sage-green/10',
+        shadow: 'shadow-sage'
       },
       study: { 
-        bg: 'bg-gradient-to-r from-orange-500 to-amber-600', 
-        text: 'text-white font-semibold', 
-        border: 'border-orange-300/50',
+        bg: 'bg-gradient-to-r from-golden-harvest to-burnt-orange', 
+        text: 'text-rich-chocolate font-semibold', 
+        border: 'border-golden-harvest/50',
         icon: '📖',
-        cardBg: 'bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100',
-        shadow: 'shadow-orange'
+        cardBg: 'bg-gradient-to-br from-warm-cream via-prayer-gold to-golden-harvest/10',
+        shadow: 'shadow-harvest'
       },
       service: { 
-        bg: 'bg-gradient-to-r from-blue-500 to-indigo-600', 
+        bg: 'bg-gradient-to-r from-chinese-tea to-mushroom', 
         text: 'text-white font-semibold', 
-        border: 'border-blue-300/50',
+        border: 'border-chinese-tea/50',
         icon: '❤️',
-        cardBg: 'bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100',
-        shadow: 'shadow-blue'
+        cardBg: 'bg-gradient-to-br from-warm-cream via-soft-taupe to-mushroom/10',
+        shadow: 'shadow-mushroom'
       },
     }
 

@@ -46,12 +46,12 @@ interface EventCardProps {
 }
 
 const categoryColors = {
-  worship: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-  fellowship: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-  study: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  service: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200',
-  community: 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200',
-  outreach: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+  worship: 'bg-warm-sand text-terracotta dark:bg-chinese-tea dark:text-warm-cream',
+  fellowship: 'bg-sage-green/20 text-deep-forest dark:bg-jade-earth dark:text-warm-cream',
+  study: 'bg-golden-harvest/20 text-chinese-tea dark:bg-burnt-orange dark:text-warm-cream',
+  service: 'bg-mushroom/20 text-rich-chocolate dark:bg-chinese-tea dark:text-warm-cream',
+  community: 'bg-dusty-rose/20 text-clay-red dark:bg-dusty-rose dark:text-warm-cream',
+  outreach: 'bg-clay-red/20 text-rich-chocolate dark:bg-clay-red dark:text-warm-cream'
 }
 
 const categoryIcons = {
